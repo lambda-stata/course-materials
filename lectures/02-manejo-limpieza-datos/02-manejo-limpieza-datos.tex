@@ -1,0 +1,66 @@
+\documentclass[11pt, aspectratio=169, compress]{beamer}
+\usetheme[progressbar=frame title, numbering=fraction]{metropolis}      % Use metropolis theme 
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\useoutertheme[subsection=false]{miniframes}
+\setbeamercolor{section in head/foot}{fg=white, bg=mDarkTeal}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamerfont{section in head/foot}{series=\bfseries}
+
+\usefonttheme[onlymath]{serif}
+\usepackage{amsmath}
+\usepackage{remreset}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage[flushleft]{threeparttable}	% 3 part table 
+\usepackage[justification=centering]{caption}
+\captionsetup{skip=0pt}
+\graphicspath{{./fig/}}
+
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry
+\def\beamer@writeslidentry@miniframesoff{%
+	\expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+	{%else
+		% removed \addtocontents commands
+		\clearpage\beamer@notesactions%
+	}
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\beamer@compresstrue
+\makeatother
+
+%==============================================================
+% Title Page
+%==============================================================
+%Information to be included in the title page:
+\title{Manejo y Limpieza de Datos}
+\author{Rony Rodriguez-Ramírez} 
+\institute{LAMBDA}
+\titlegraphic{\hfill\includegraphics[height=1.5cm]{dime}}
+\date{\today}
+%==============================================================
+\begin{document}
+	
+\begin{frame}[plain]
+	\maketitle 
+\end{frame}
+
+%------------------------------------------------
+\section{Manejo y Limpieza de Datos}
+%-----------------------------------------------
+\subsection{Manejo y Limpieza de Datos}
+%-----------------------------------------------
+\begin{frame}{Introducción}
+
+\end{frame}
+%-----------------------------------------------
+
+%-----------------------------------------------
+\end{document}		

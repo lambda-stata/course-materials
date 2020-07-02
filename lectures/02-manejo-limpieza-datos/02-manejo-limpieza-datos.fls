@@ -1,7 +1,7 @@
-PWD d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro
+PWD d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos
 INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.tex
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.log
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.tex
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.log
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamer.cls
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamer.cls
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasemodes.sty
@@ -230,7 +230,7 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerco
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinnerthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinnerthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.pdf
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.pdf
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.20.pdf
@@ -330,9 +330,9 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.aux
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.aux
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.aux
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
@@ -345,13 +345,13 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\refcount\refcou
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\refcount\refcount.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\gettitlestring\gettitlestring.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\gettitlestring\gettitlestring.sty
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-bibliography-dictionary-English.dict
@@ -364,8 +364,8 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\tran
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-numbers-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-theorem-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-theorem-dictionary-English.dict
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.nav
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.nav
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.nav
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.nav
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmssbx10.tfm
@@ -399,23 +399,15 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.f
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmss.fd
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmss.fd
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\tcss1095.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\tcss1000.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss12.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmssbx10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.nav
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.toc
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.snm
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1000.pk
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1000.pk
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1095.pk
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1095.pk
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.nav
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.toc
+OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.snm
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.aux
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
+INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\02-manejo-limpieza-datos\02-manejo-limpieza-datos.out
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss10.pfb
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss10.pfb
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss8.pfb

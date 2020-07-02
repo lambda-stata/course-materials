@@ -53,26 +53,229 @@
 \end{frame}
 
 %------------------------------------------------
-\section{Programación 101}
+\section{Introducción al Curso}
 %-----------------------------------------------
-\subsection{Programación 101}
+\subsection{Introducción al Curso}
 %-----------------------------------------------
 \begin{frame}{Introducción}
 	¿Quién soy? 
 	\begin{itemize}
-		\item ¿Cómo les fue en el ensayo? 
-		\item Relación instituciones y economía social: 
+		\item Nombre: Rony Rodrigo Maximiliano Rodriguez-Ramirez
+		\item Trabajo: Banco Mundial, Washington, D.C.  
 		\begin{itemize}
-			\item ¿Por qué el paper de los esclavos en Africa la semana pasada? 
+			\item Development Impact Evaluation Unit (DIME)
 		\end{itemize}
+		\item Educación: Economista con máster en Development Policy (KDI School)
+		\item Experiencia: 
+		\begin{itemize}
+			\item Innovations for Poverty Action (IPA)
+			\item KDI School of Public Policy and Management
+		\end{itemize} 
 	\end{itemize}
 \end{frame}
-%------------------------------------------------
-\section{Sesiones}
 %-----------------------------------------------
-\subsection{Sesiones}
+\section{Organización del Curso}
+%-----------------------------------------------
+\subsection{Organización del Curso}
+%-----------------------------------------------
+\begin{frame}{Enfoque del Curso}
+	\begin{itemize}
+		\item ¿Por qué es importante aprender un software de análisis econométrico hoy en día (Stata, R, etc.)? 
+		\item Mejoramiento del conocimiento de programación aplicada a la econometría y la investigación.
+		\item Buenas prácticas de programación de la Unidad de Evaluación de Impacto del Banco Mundial.
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Objetivos}
+	Objetivos del Curso: 
+	\begin{itemize}
+		\item Aprender los conceptos clave y las técnicas econométricas asociadas a la programación estadísticas usando Stata:
+		\begin{itemize}
+			\item Desarrollar buenos hábitos de programación.
+			\item Aprende a implementar programación básica y avanzada.
+			\item Aprenda varias características y detalles específicos del lenguaje de programación popular en econometría, Stata.
+		\end{itemize}
+
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Sesiones}
+	Este curso estará dividio en 5 sesiones (o tópicos):
+	\begin{enumerate}
+		\item Programación 101
+		\item Manejo y Limpieza de Datos
+		\item Construcción de Datos
+		\item Análisis de Datos
+		\item Programando modelos de evaluación de Impacto
+		\begin{enumerate}
+			\item RCTs y Datos Panel
+			\item Diferencias en Diferencias
+			\item Regressión Discontinua
+		\end{enumerate}
+	\end{enumerate}	
+\end{frame}
 %-----------------------------------------------
 
+%-----------------------------------------------
+\section{Materiales del Curso}
+%-----------------------------------------------
+\subsection{Materiales del Curso}
+%-----------------------------------------------
+\begin{frame}{Repositorio en Github}
+	Los materiales del curso se pueden encontrar en el siguiente enlance \href{https://github.com/lambda-stata/course-materials}{\color{blue}{enlace}}. Este repositorio será actualizado semalmente con las siguietes carpetas. A su vez, subiré la misma información al Canvas.  
+	\begin{itemize}
+		\item Lecturas (Slides)
+		\item Codes (Stata)
+		\item Syllabus
+	\end{itemize}
+\end{frame}
+
+%-----------------------------------------------
+\section{Programación 101}
+%-----------------------------------------------
+\subsection{Programación 101}
+%-----------------------------------------------
+\begin{frame}{Excel vs Stata}
+	¿Puedo ocupar Excel para análisis de regresiones?
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{La principal razón por la cual escribimos códigos}
+	In Excel you make changes directly to the data and save new versions of the data set
+
+	In Stata (or R) you make changes to the instructions on how to get from the raw data to the final analysis and save new versions of the instructions.
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Tu código es un resultado}
+	Researchers often treat code as a mean to an end, but the main point of this presentation is that your code is equally as much an end in itself as the paper or the report you are writing!
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Objetivo}
+	To become a great coder you both need to code like a coder and think like a coder. 
+
+	Both takes a lot of practice to master, but the objective of this session is to give you a framework to think like a coder by answering questions like:
+
+	Why do we code?
+	How do I code so it is the most helpful for other people in my team?
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Coding in Academia vs Workplace}
+	In academia:
+	Being correct is what matters
+	In the workplace:
+	Correct is equally important as in academia
+	Past, current and future team members will contribute to the same code, and therefore we need to standardize how we code, and focus on skills for coding as a team
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Critical thinking about data}
+	Do I believe this number? 
+	What can go wrong in my code? 
+	How will missing values be treated in this command? 
+	What would happen if more observations would be added to the data set?
+	What would happen if some observations would be removed from the data set?
+\end{frame}
+%-----------------------------------------------
+\subsection{Manejo de los datos}
+%-----------------------------------------------
+\begin{frame}{Explore a raw data set}
+	What is the first thing you want to look for every single time you open a new data set for the first time?
+
+	1. Unit of observation
+	2. Uniquely and fully identifying ID variable
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Explore a raw data set}
+	
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Explore a raw data set}
+	
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{ID variable}
+	Only work with data set that has an ID variable. If the data set that you have received does not have one, then creating it is your first task 
+	Test that the ID variable is uniquely and fully identifying
+	Use only one variable as ID variable
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Role division in data work}
+	Research Assistants
+	No one will look at the data as much as the RA
+	Irregularities in the data that the RA does not identify will often never be discovered
+	Economists
+	In charge of deciding which irregularities will be corrected and how
+	Economists completely depend on RAs to identify irregularities and get the information to make the best call
+\end{frame}
+%-----------------------------------------------
+\subsection{Coding Styles}
+%-----------------------------------------------
+\begin{frame}{Estilo}
+	White Space. Stata does not distinguish between one empty space and many empty spaces, or one line break or many line breaks. It makes a big difference to the human eye and we would never share a Word document, an Excel sheet or a PowerPoint presentation without thinking about white space - although we call it formatting.
+
+	Is this slide easy to read?
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{White space - Espacio blanco}
+	\begin{itemize}
+		\item Stata does not distinguish between one empty space and many empty spaces, or one line break or many line breaks
+
+		\item It makes a big difference to the human eye and we would never share a Word document, an Excel sheet or a PowerPoint presentation without thinking about white space – although we call it formatting.
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Líneas verticales}
+	
+\end{frame}
+%-----------------------------------------------
+\subsection{Documentación}
+%-----------------------------------------------
+\begin{frame}{Uso del archivos de ayuda y el conocimiento de programación}
+	
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Archivos de ayuda (help files)}
+	
+\end{frame}
+%-----------------------------------------------
+\subsection{¿Cómo mejorar en programación}
+%-----------------------------------------------
+\begin{frame}{¿Dónde están las regresiones}
+	
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{En palabras sencillas}
+	
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Review each others code}
+	Compare your code and discuss differences
+	Ask what is easiest to understand if you think of your do-file as an instruction? What is difficult?
+	Apply the question of critical thinking of data work to each others code. (If you do not know what will happen if you have missing data, test it)
+	If no one lets you see their code, ask people to look at your code. Have you ever asked someone to help you proofread you your Word document?
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Read other peoples code}
+	Look for code on GitHub 
+	https://github.com/trending/stata (Stata)
+	https://github.com/vikjam/mostly-harmless-replication (Stata and other languages)
+	Google code, but before using, ask yourself critical questions about the code you found.
+	Why did this person code this way?
+	Does this apply to my context?		
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Database management literature}
+	Your project folder is an informal data base, and very smart people working with data bases have been thinking a lot about this
+
+	I don’t have a specific book to recommend as I don’t know of a book written for our context, so this method is not for the faint hearted		
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Conclusión}
+	Your code is a tool that you should develop as if other people will be using it
+
+	Ask for help from your peers to review your code
+	
+	When submitting code, format them as carefully as you would format your resume or your cover letter
+\end{frame}
 %==============================================================
 % END
 %==============================================================
