@@ -1,2 +1,4 @@
 \beamer@sectionintoc {1}{Programación 101}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Programación 101}{3}{0}{1}
+\beamer@sectionintoc {2}{Sesiones}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Sesiones}{5}{0}{2}

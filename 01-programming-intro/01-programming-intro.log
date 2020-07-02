@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.5)  27 JUN 2020 18:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.5)  27 JUN 2020 18:45
 entering extended mode
 **"d:/Documents/RA Jobs/LAMBDA/Stata Avanzado/lectures/01-programming-intro/01-programming-intro.tex"
 ("d:/Documents/RA Jobs/LAMBDA/Stata Avanzado/lectures/01-programming-intro/01-programming-intro.tex"
@@ -818,7 +818,7 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ("d:/Documents\RA Jobs\LAMBDA\Stata Avanzado\lectures\01-programming-intro\01-programming-intro.nav")
-<./fig/dime.png, id=23, 702.625pt x 181.67876pt>
+<./fig/dime.png, id=33, 702.625pt x 181.67876pt>
 File: ./fig/dime.png Graphic file (type png)
 <use ./fig/dime.png>
 Package pdftex.def Info: ./fig/dime.png  used on input line 53.
@@ -851,6 +851,8 @@ File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 
 ] [4
 
+] [5
+
 ]
 \tf@nav=\write6
 \openout6 = `01-programming-intro.nav'.
@@ -861,26 +863,26 @@ File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 \tf@snm=\write8
 \openout8 = `01-programming-intro.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
  ("d:/Documents\RA Jobs\LAMBDA\Stata Avanzado\lectures\01-programming-intro\01-programming-intro.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
 Package rerunfilecheck Info: File `01-programming-intro.out' has not changed.
-(rerunfilecheck)             Checksum: D8D7B546F9C5BAE8FA6581C1D3E709E1;122.
+(rerunfilecheck)             Checksum: C4FF0CA3262FA6BF8560C4C100480632;222.
  ) 
 Here is how much of TeX's memory you used:
- 23221 strings out of 480930
- 473270 string characters out of 2899762
- 704150 words of memory out of 3000000
- 38514 multiletter control sequences out of 15000+200000
+ 23234 strings out of 480930
+ 473395 string characters out of 2899762
+ 705153 words of memory out of 3000000
+ 38523 multiletter control sequences out of 15000+200000
  540678 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,19n,100p,1967b,802s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1000.pk> <C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/ifyou/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/ifyou/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/ifyou/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on "d:/Documents\RA Jobs\LAMBDA\Stata Avanzado\lectures\01-programming-intro\01-programming-intro.pdf" (4 pages, 70724 bytes).
+Output written on "d:/Documents\RA Jobs\LAMBDA\Stata Avanzado\lectures\01-programming-intro\01-programming-intro.pdf" (5 pages, 73181 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
+ 80 words of extra memory for PDF output out of 10000 (max. 10000000)
 
