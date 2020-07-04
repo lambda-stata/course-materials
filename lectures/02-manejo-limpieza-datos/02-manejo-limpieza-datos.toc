@@ -1,2 +1,0 @@
-\beamer@sectionintoc {1}{Manejo y Limpieza de Datos}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Manejo y Limpieza de Datos}{3}{0}{1}
