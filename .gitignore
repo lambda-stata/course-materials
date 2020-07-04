@@ -69,6 +69,8 @@ Backup of *.doc*
 *.fot
 *.cb
 *.cb2
+*.nav
+*.snm
 .*.lb
 
 # Intermediate documents:
