@@ -42,7 +42,7 @@
 %Information to be included in the title page:
 \title{Programación 101}
 \author{Rony Rodriguez-Ramírez} 
-\institute{LAMBDA}
+\institute{The World Bank | DIME \\ LAMBDA}
 \titlegraphic{\hfill\includegraphics[height=1.5cm]{dime}}
 \date{\today}
 %==============================================================
@@ -60,7 +60,7 @@
 \begin{frame}{Introducción}
 	¿Quién soy? 
 	\begin{itemize}
-		\item Nombre: Rony Rodrigo Maximiliano Rodriguez-Ramirez
+		\item Nombre: Rony Rodrigo Maximiliano Rodríguez-Ramírez
 		\item Trabajo: Banco Mundial, Washington, D.C.  
 		\begin{itemize}
 			\item Development Impact Evaluation Unit (DIME)
@@ -71,6 +71,7 @@
 			\item Innovations for Poverty Action (IPA)
 			\item KDI School of Public Policy and Management
 		\end{itemize} 
+		\item La mayoría de mi trabajo es evaluación de impacto de Randomized Controlled Trials en países en desarrollo (e.g., Rwanda, Liberia, etc.).
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
@@ -89,7 +90,7 @@
 \begin{frame}{Objetivos}
 	Objetivos del Curso: 
 	\begin{itemize}
-		\item Aprender los conceptos clave y las técnicas econométricas asociadas a la programación estadísticas usando Stata:
+		\item Aprender los conceptos clave y las técnicas econométricas asociadas a la programación estadísticas usando Stata enfatizando la eficiencia de escribir códigos: 
 		\begin{itemize}
 			\item Desarrollar buenos hábitos de programación.
 			\item Aprende a implementar programación básica y avanzada.
@@ -100,17 +101,17 @@
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Sesiones}
-	Este curso estará dividio en 5 sesiones (o tópicos):
+	Este curso estará dividio en 5 sesiones (o mejor dicho tópicos):
 	\begin{enumerate}
-		\item Programación 101
-		\item Manejo y Limpieza de Datos
-		\item Construcción de Datos
-		\item Análisis de Datos
+		\item Programación 101 (2 horas)
+		\item Manejo y Limpieza de Datos (2 horas)
+		\item Construcción de Datos (2 horas)
+		\item Análisis de Datos (4 horas)
 		\item Programando modelos de evaluación de Impacto
 		\begin{enumerate}
-			\item RCTs y Datos Panel
-			\item Diferencias en Diferencias
-			\item Regressión Discontinua
+			\item RCTs y Datos Panel (2 horas)
+			\item Diferencias en Diferencias (2 horas)
+			\item Regresión Discontinua (2 horas)
 		\end{enumerate}
 	\end{enumerate}	
 \end{frame}
@@ -122,14 +123,30 @@
 \subsection{Materiales del Curso}
 %-----------------------------------------------
 \begin{frame}{Repositorio en Github}
-	Los materiales del curso se pueden encontrar en el siguiente enlance \href{https://github.com/lambda-stata/course-materials}{\color{blue}{enlace}}. Este repositorio será actualizado semalmente con las siguietes carpetas. A su vez, subiré la misma información al Canvas.  
-	\begin{itemize}
+	Los materiales del curso se pueden encontrar en el siguiente enlance \href{https://github.com/lambda-stata/course-materials}{\color{blue}{enlace}}. Este repositorio será actualizado semalmente con las siguietes carpetas. A su vez, subiré la misma información al \href{https://canvas.instructure.com/courses/2136052}{\color{blue}{Canvas}}. 
+	\begin{enumerate}
 		\item Lecturas (Slides)
+		\begin{itemize}
+			\item 01-programming-intro
+			\item 02-manejo-limpieza-datos
+		\end{itemize}
 		\item Codes (Stata)
+		\begin{itemize}
+			\item 01-programming-intro
+			\item 02-manejo-limpieza-datos
+		\end{itemize} 
 		\item Syllabus
+	\end{enumerate}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Encuestas}
+	\begin{itemize}
+		\item Uso de Stata
+		\item Uso de Git
+		\item Uso de \LaTeX
 	\end{itemize}
 \end{frame}
-
+%-----------------------------------------------
 %-----------------------------------------------
 \section{Programación 101}
 %-----------------------------------------------
@@ -140,148 +157,226 @@
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{La principal razón por la cual escribimos códigos}
-	In Excel you make changes directly to the data and save new versions of the data set
-
-	In Stata (or R) you make changes to the instructions on how to get from the raw data to the final analysis and save new versions of the instructions.
+	\begin{itemize}
+		\item En Excel, se realiza cambios directamente en los datos y guarda nuevas versiones del conjunto de datos. 
+		\item En Stata (o R), realiza cambios en las instrucciones sobre cómo pasar de los datos sin procesar al análisis final y guarda nuevas versiones de las instrucciones.
+		\begin{itemize}
+			\item En Stata utilizamos do files (or ado files).
+			\item En R utilizamos RScripts.
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Tu código es un resultado}
-	Researchers often treat code as a mean to an end, but the main point of this presentation is that your code is equally as much an end in itself as the paper or the report you are writing!
+	\begin{block}{¿Cómo deberíamos de tratar nuestro código?}
+		Los investigadores a menudo tratan el código como un medio para un fin, pero el punto principal de esta presentación es que su código es tanto un fin en sí mismo como el documento o el informe que está escribiendo.
+	\end{block}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Objetivo}
-	To become a great coder you both need to code like a coder and think like a coder. 
+\begin{frame}{Objetivo de esta primera sesión}
+	\begin{itemize}
+		\item Para convertirse en un gran coder, ambos deben codificar como un coder y pensar como un coder.
 
-	Both takes a lot of practice to master, but the objective of this session is to give you a framework to think like a coder by answering questions like:
-
-	Why do we code?
-	How do I code so it is the most helpful for other people in my team?
+		\item Ambos requieren mucha práctica para dominar, pero el objetivo de esta sesión es brindarle un marco para pensar como un codificador respondiendo preguntas como:
+		
+		\begin{itemize}
+			\item ¿Por qué programar?
+		
+			\item ¿Cómo programo para que sea lo más útil para otras personas de mi equipo?
+		\end{itemize}	
+	\end{itemize}
 
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Coding in Academia vs Workplace}
-	In academia:
-	Being correct is what matters
-	In the workplace:
-	Correct is equally important as in academia
-	Past, current and future team members will contribute to the same code, and therefore we need to standardize how we code, and focus on skills for coding as a team
+\begin{frame}{Programar en academia vs workplace}
+	\begin{itemize}
+		\item En academia: 
+		\begin{itemize}
+			\item Estar en el correcto importa. 
+		\end{itemize}
+		\item Workplace:
+		\begin{itemize}
+			\item Estar en lo correcto es igual de importante que en la academia,
+			\item Los miembros del equipo pasados, actuales y futuros contribuirán al mismo código y, por lo tanto, debemos estandarizar cómo programamos y centrarnos en las habilidades para programar como equipo.
+		\end{itemize}
+	\end{itemize}	
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Critical thinking about data}
-	Do I believe this number? 
-	What can go wrong in my code? 
-	How will missing values be treated in this command? 
-	What would happen if more observations would be added to the data set?
-	What would happen if some observations would be removed from the data set?
+\begin{frame}{Pensamiento crítico sobre los datos.}
+	\begin{itemize}
+		\item ¿Creo en este número?
+		\item ¿Qué puede salir mal en mi código?
+		\item ¿Cómo se tratarán los valores perdidos en este comando?
+		\item ¿Qué pasaría si se agregaran más observaciones al conjunto de datos?
+		\item ¿Qué sucedería si algunas observaciones se eliminaran del conjunto de datos?
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \subsection{Manejo de los datos}
 %-----------------------------------------------
-\begin{frame}{Explore a raw data set}
-	What is the first thing you want to look for every single time you open a new data set for the first time?
+\begin{frame}{Explore un conjunto de datos sin procesar}
+	¿Qué es lo primero que buscamos cada vez que abre un nuevo conjunto de datos por primera vez?
 
-	1. Unit of observation
-	2. Uniquely and fully identifying ID variable
+	\begin{enumerate}
+		\item Unidad de observación.
+		\item Identificación completa y única de una variable ID. 
+	\end{enumerate}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Explore a raw data set}
-	
+	\begin{itemize}
+		\item Household\_data.csv
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{hh_data.png}
+	\end{figure}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Explore a raw data set}
-	
+	\begin{itemize}
+		\item Clinic\_data.csv
+	\end{itemize}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{clinic_data.png}
+	\end{figure}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{ID variable}
-	Only work with data set that has an ID variable. If the data set that you have received does not have one, then creating it is your first task 
-	Test that the ID variable is uniquely and fully identifying
-	Use only one variable as ID variable
+\begin{frame}{Variable ID}
+	\begin{itemize}
+		\item Solo trabaje con un conjunto de datos que tenga una variable de ID. Si el conjunto de datos que ha recibido no tiene uno, entonces crearlo es su primera tarea.
+		\item Probar que la variable ID es única y completamente identificable.
+		\item Use solo una variable como variable de ID.
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Role division in data work}
-	Research Assistants
-	No one will look at the data as much as the RA
-	Irregularities in the data that the RA does not identify will often never be discovered
-	Economists
-	In charge of deciding which irregularities will be corrected and how
-	Economists completely depend on RAs to identify irregularities and get the information to make the best call
+\begin{frame}{División de roles en el trabajo de datos}
+	\textbf{Asistentes de investigación}
+	\begin{itemize}
+		\item Nadie mirará los datos tanto como el RA.
+		\item Las irregularidades en los datos que la RA no identifica a menudo nunca se descubrirán
+	\end{itemize}
+	\textbf{Economistas}
+	\begin{itemize}
+		\item A cargo de decidir qué irregularidades se corregirán y cómo.
+		\item Los economistas dependen completamente de los RA para identificar irregularidades y obtener la información para tomar la mejor decisión.
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \subsection{Coding Styles}
 %-----------------------------------------------
 \begin{frame}{Estilo}
-	White Space. Stata does not distinguish between one empty space and many empty spaces, or one line break or many line breaks. It makes a big difference to the human eye and we would never share a Word document, an Excel sheet or a PowerPoint presentation without thinking about white space - although we call it formatting.
+	Stata no distingue entre un espacio vacío y muchos espacios vacíos, o un salto de línea o muchos saltos de línea. Es una gran diferencia para el ojo humano y nunca compartiríamos un documento de Word, una hoja de Excel o una presentación de PowerPoint sin pensar en espacios en blanco, aunque en este caso lo llamamos formato.
 
-	Is this slide easy to read?
+	\begin{center}
+		¿Es esta diapositiva fácil de leer?
+	\end{center}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{White space - Espacio blanco}
 	\begin{itemize}
-		\item Stata does not distinguish between one empty space and many empty spaces, or one line break or many line breaks
+		\item Stata no distingue entre un espacio vacío y muchos espacios vacíos, o un salto de línea o muchos saltos de línea.
 
-		\item It makes a big difference to the human eye and we would never share a Word document, an Excel sheet or a PowerPoint presentation without thinking about white space – although we call it formatting.
+		\item Es una gran diferencia para el ojo humano y nunca compartiríamos un documento de Word, una hoja de Excel o una presentación de PowerPoint sin pensar en espacios en blanco, aunque en este caso lo llamamos formato.
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Líneas verticales}
-	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{code_vertical.png}
+	\end{figure}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}{Líneas verticales}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{code_vertical2.png}
+	\end{figure}
 \end{frame}
 %-----------------------------------------------
 \subsection{Documentación}
 %-----------------------------------------------
 \begin{frame}{Uso del archivos de ayuda y el conocimiento de programación}
-	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{dunning.png}
+	\end{figure}	
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Archivos de ayuda (help files)}
-	
+	\begin{itemize}
+		\item Escriba Stata: \texttt{help nombre\_comando} 
+		\item ¡Acostúmbrate a usar el archivo de ayuda con la mayor frecuencia posible!
+		\begin{itemize}
+			\item Incluso con comandos familiares, siempre más para aprender.
+		\end{itemize}
+		\item Los archivos de ayuda son solo resúmenes del manual de referencia prácticas de codificación, errores comunes, enfoques alternativos.
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \subsection{¿Cómo mejorar en programación}
 %-----------------------------------------------
 \begin{frame}{¿Dónde están las regresiones}
-	
+	\begin{itemize}
+		\item Todavía no hemos realizado nada sobre regresiones. 
+		\item En programación, el análisis es la parte fácil siempre que el conjunto de datos esté configurado correctamente para el análisis.
+		\item Cómo usar los comandos para el análisis es mucho más fácil buscarlo en Google o preguntarle a alguien cómo hacerlo comparado con  la limpieza de datos, la gestión de datos y el aseguramiento de la calidad de los datos.
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{En palabras sencillas}
-	
+	\begin{center}
+		``Cuando tu código funciona, solo estás a medias''. 
+	\end{center}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Review each others code}
-	Compare your code and discuss differences
-	Ask what is easiest to understand if you think of your do-file as an instruction? What is difficult?
-	Apply the question of critical thinking of data work to each others code. (If you do not know what will happen if you have missing data, test it)
-	If no one lets you see their code, ask people to look at your code. Have you ever asked someone to help you proofread you your Word document?
+\begin{frame}{Revisar el código de las demás}
+	\begin{itemize}
+		\item Compare su código y discuta las diferencias con otras personas.
+		\item Pregunte qué es más fácil de entender si piensa en su \texttt{do file} como una instrucción. ¿Que es difícil?
+		\item Aplique un pensamiento crítico al trabajo de datos al código de cada uno, i.e., pruebe si habrá errores en su código, o si faltan datos.
+		\item Si nadie le permite ver su código, pídale a las personas que lo vean. 
+		\begin{itemize}
+			\item ¿Alguna vez le has pedido a alguien que te ayude a corregir tu documento de Word?
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Read other peoples code}
-	Look for code on GitHub 
-	https://github.com/trending/stata (Stata)
-	https://github.com/vikjam/mostly-harmless-replication (Stata and other languages)
-	Google code, but before using, ask yourself critical questions about the code you found.
-	Why did this person code this way?
-	Does this apply to my context?		
+\begin{frame}{Leer el código de otras personas}
+	\begin{itemize}
+		\item Busque el código en GitHub
+		\item \href{https://github.com/trending/stata}{https://github.com/trending/stata} (Stata)
+		\item \href{https://github.com/vikjam/mostly-harmless-replication}{https://github.com/vikjam/mostly-harmless-replication} (Stata y otros idiomas)
+		\item Googlear, pero antes, hágase preguntas críticas sobre el código que encontró.
+		\item ¿Por qué esta persona programó de esta manera?
+		\item ¿Esto se aplica a mi contexto?
+	\end{itemize}	
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Database management literature}
-	Your project folder is an informal data base, and very smart people working with data bases have been thinking a lot about this
-
-	I don’t have a specific book to recommend as I don’t know of a book written for our context, so this method is not for the faint hearted		
+\begin{frame}{Literatura de gestión de bases de datos}
+	\begin{itemize}
+		\item La carpeta de su proyecto es una base de datos informal, y personas muy inteligentes que trabajan con bases de datos han estado pensando mucho en esto.
+		\item No tengo un libro específico para recomendar, ya que no conozco un libro escrito para nuestro contexto, por lo que este método no es para los débiles
+	\end{itemize}		
 \end{frame}
 %-----------------------------------------------
 \begin{frame}{Conclusión}
-	Your code is a tool that you should develop as if other people will be using it
+	\begin{itemize}
+		\item Su código es una herramienta que debe desarrollar como si otras personas lo estuvieran usando.
 
-	Ask for help from your peers to review your code
-	
-	When submitting code, format them as carefully as you would format your resume or your cover letter
+		\item Solicite ayuda de sus pares para revisar su código.
+		
+		\item Al enviar el código, formatee con el mismo cuidado que formatearía su currículum o su carta de presentación.
+	\end{itemize}
 \end{frame}
 %==============================================================
 % END
 %==============================================================
 \miniframesoff 	
 \begin{frame}[plain, standout]
-Nos vemos la siguiente semana. 
+Nos vemos mañana.
 \end{frame}
 %------------------------------------------------
 \end{document}		

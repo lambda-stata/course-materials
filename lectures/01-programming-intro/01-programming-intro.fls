@@ -1,7 +1,7 @@
 PWD d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
+INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\miktex\data\le\xetex\xelatex.fmt
 INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.tex
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.log
+OUTPUT 01-programming-intro.log
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamer.cls
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamer.cls
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasemodes.sty
@@ -22,11 +22,10 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geomet
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifvtex.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifvtex.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xetexconfig\geometry.cfg
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\xelatex\xetexconfig\geometry.cfg
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size11.clo
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size11.clo
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
@@ -37,8 +36,8 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.s
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\xetex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\xetex.def
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty
@@ -57,8 +56,9 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlay
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-xetex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-xetex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-dvipdfmx.def
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
@@ -136,18 +136,26 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\etexcmds\etex
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\etexcmds\etexcmds.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\zapfding\pzdr.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bitset\bitset.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bitset\bitset.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bigintcalc\bigintcalc.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bigintcalc\bigintcalc.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\atveryend\atveryend.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\atveryend\atveryend.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hxetex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hxetex.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\puenc.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\puenc.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\stringenc\stringenc.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\stringenc\stringenc.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\rerunfilecheck\rerunfilecheck.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\atveryend\atveryend.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\atveryend\atveryend.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\stringenc\se-ascii-print.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\stringenc\se-ascii-print.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\stringenc\se-ascii-print.def
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaserequires.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbaserequires.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasecompatibility.sty
@@ -220,7 +228,6 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.s
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasethemes.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerbasethemes.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerfontthemedefault.sty
@@ -230,23 +237,10 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerco
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinnerthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerinnerthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.pdf
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.20.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.20.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonbook.20.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonarticle.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonarticle.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonarticle.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonarticle.20.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonarticle.20.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericonarticle.20.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericononline.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericononline.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericononline.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericononline.20.pdf
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericononline.20.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamericononline.20.pdf
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerouterthemedefault.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerouterthemedefault.sty
@@ -298,6 +292,21 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifxetex
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifxetex.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifluatex.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifluatex.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-xdvipdfmx.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-xdvipdfmx.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec-xetex.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec-xetex.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\tuenc.def
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.cfg
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontspec\fontspec.cfg
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerouterthememiniframes.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerouterthememiniframes.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\beamer\beamerfontthemeserif.sty
@@ -328,30 +337,24 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendl
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\grfext\grfext.sty
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\grfext\grfext.sty
+INPUT 01-programming-intro.aux
+INPUT 01-programming-intro.aux
+OUTPUT 01-programming-intro.aux
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\refcount\refcount.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\refcount\refcount.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\gettitlestring\gettitlestring.sty
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\generic\gettitlestring\gettitlestring.sty
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
+INPUT 01-programming-intro.out
+INPUT 01-programming-intro.out
+INPUT 01-programming-intro.out
+INPUT 01-programming-intro.out
+INPUT .\01-programming-intro.out
+INPUT .\01-programming-intro.out
+OUTPUT 01-programming-intro.out
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-bibliography-dictionary-English.dict
@@ -364,20 +367,11 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\tran
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-numbers-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-theorem-dictionary-English.dict
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\translator\translator-theorem-dictionary-English.dict
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.nav
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.nav
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmssbx10.tfm
+INPUT 01-programming-intro.nav
+INPUT 01-programming-intro.nav
 INPUT fig\dime.png
-INPUT .\fig\dime.png
-INPUT .\fig\dime.png
-INPUT .\fig\dime.png
-INPUT .\fig\dime.png
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss12.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmssbx10.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss10.tfm
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+OUTPUT 01-programming-intro.xdv
+INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
@@ -399,26 +393,14 @@ INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.f
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmss.fd
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmss.fd
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\tcss1095.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\tcss1000.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss12.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmssbx10.tfm
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.nav
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.toc
-OUTPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.snm
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.aux
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT d:\Documents\RA Jobs\LAMBDA\Stata Avanzado\course-materials\lectures\01-programming-intro\01-programming-intro.out
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1000.pk
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1000.pk
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1095.pk
-INPUT C:\Users\ifyou\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcss1095.pk
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss10.pfb
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss10.pfb
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss8.pfb
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmss8.pfb
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
-INPUT C:\Users\ifyou\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
+INPUT fig\hh_data.png
+INPUT fig\clinic_data.png
+INPUT fig\code_vertical.png
+INPUT fig\code_vertical2.png
+INPUT fig\dunning.png
+OUTPUT 01-programming-intro.nav
+OUTPUT 01-programming-intro.toc
+OUTPUT 01-programming-intro.snm
+INPUT 01-programming-intro.aux
+INPUT .\01-programming-intro.out
+INPUT .\01-programming-intro.out
