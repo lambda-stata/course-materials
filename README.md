@@ -2,7 +2,7 @@
 
 ## Outline y enlaces
 
-1. Progrmación 101 \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/01-programming-intro/01-programming-intro.pdf)\]
+1. Programación 101 \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/01-programming-intro/01-programming-intro.pdf)\]
 2. Manejo y Limpieza de Datos \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/02-manejo-limpieza-datos/02-manejo-limpieza-datos.pdf)\]
 3. Construcción de Datos
 4. Análisis de Datos
