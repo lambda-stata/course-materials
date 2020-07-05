@@ -2,6 +2,7 @@
 * PROJECTO: 	Stata avanzado LAMBDA                           
 * TITULO: 		Master Do File
 * YEAR:			2020
+* Author: 		Rony Rodríguez-Ramírez
 *********************************************************************************
 	
 *** Outline:
@@ -15,7 +16,7 @@
 ********************************************************************************/
 
 *** 0.1 Install required packages: MACRO: Global - Local 	
-	local install_packages 0
+	local install_packages 0 
 	
 	if `install_packages' {
 		ssc install ietoolkit, 	replace
@@ -29,10 +30,16 @@
 	
 *** 0.1 Setting up users	
 	if ("`c(username)'" == "maximiliano") {
+		// Absoluto
 		global project 				"D:/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
 	}
 	
+	if ("`c(username)'" == "USERNAME") { 
+		global project 				""
+	}
+	
 *** 0.2 Setting up folders
+	// Dinámicos 
 	global codes					"${project}/codes"
 	global data						"${project}/data"
 	
@@ -46,6 +53,7 @@
 
 	
 	// Semana 3
+	
 	
 *** 0.3 Setting up execution 
 	global primera_semana 0
