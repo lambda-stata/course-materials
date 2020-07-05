@@ -20,8 +20,10 @@
 		- Analysis
 			- Datos
 			- DoFiles
-		- Outputs 
+			- Outputs 
+		- Escritura 
 			- Reporte
+			- Presentacion
 			
 	Este tipo de estructure puede cambiar conforme al tipo de projecto que uno 
 	tiene en mente. 

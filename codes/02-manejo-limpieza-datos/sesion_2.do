@@ -1,5 +1,6 @@
 /********************************************************************************
 * Título:	Manejo y Limpieza de Datos
+* Autor:		
 *********************************************************************************
 	
 *** Outline:
@@ -11,7 +12,6 @@
 		2.2 Una mejor manera de ver los missings
 		2.3 Recoding 
 	
-
 *********************************************************************************
 ***	PART 1: Variable ID y Duplicados
 ********************************************************************************/
@@ -20,70 +20,60 @@
 	use "${data_1_2}/webstart.dta", clear 
 		
 *** 1.2 Duplicates and ID variable
-	count 
-	local obs = r(N)
-	display "El número total de observaciones es `obs'"
-
 	isid newid 
 	duplicates report newid 
 	
 	// Expandimos para tener duplicados 
 	expand 2 
-	
-	count 
-	local obs = r(N)
-	display "El número total de observaciones es `obs'"	
-	
+	capture isid newid 
+
 	// Drop los duplicados 
-	duplicates report 
-	duplicates drop 
-	
-	count 
-	local obs = r(N)
-	display "El número total de observaciones es `obs'"		
+	duplicates report newid 
+	duplicates drop newid, force 
 	
 *********************************************************************************
 ***	PART 2: Glimpse de algunas variables
 *********************************************************************************
 	
 *** 2.1 Variables demográficas (missings)
+	count 
+	local obs = r(N)
+	
+	local demo ssex srace sbirthy sesk
 
-	local demo ssex srace sbirthq sbirthy sesk
 	foreach var in `demo' {
 		tab `var'
-		if (r(n) == `obs') {
-			display "Las observaciones en la tabla son diferentes al total de observaciones"
+		if (r(N) == `obs') {
+			display "Las observaciones en la tabla es igual al número total de observaciones"
 		}
 		else {
-			display "El número de observaciones en la tabla es igual al número total de observaciones"
+			display "El número de observaciones en la tabla es diferente al número total de observaciones"
 		}
 	}
-		
-	
+
 *** 2.2 Una mejor manera de ver los missings
-	local demo ssex srace sbirthq sbirthy sesk	
+	local ejemplo ssex star1 star2 star3 
 	
-	foreach var in `demo' {
+	foreach var in `ejemplo' {
 		capture assert !missing(`var')
 		if _rc == 9 {
 			display "Variable `var' has missings"
-			* replace `var' = 0 if missing(`var')
+			replace `var' = 0 if missing(`var')
 		}
 		else {
 			display "Variable `var' didn't have missings"
 		}		
 	}
-
-*** 2.2 Recoding
-	local star star1 star2 star3 
-
-	foreach var in `star' {
-	    di `"`: var label `var''"' 
-	    tab `var', missing 
-		recode `var' (2=0) 
-		replace `var' = 0 if missing(`var')
-		replace `var' = 0 if `var'<=0
-		tab `var', missing 
-	}
-
 	
+*** 2.2 Recoding	
+	gen ssex2 = ssex 
+	gen ssex3 = ssex 
+	
+	local sex ssex ssex2 ssex3
+
+	foreach var in `sex' {
+		capture assert `var' == 2 
+		if _rc == 9 {
+			recode `var' (2=0)
+		}
+	}

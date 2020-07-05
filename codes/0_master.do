@@ -16,7 +16,7 @@
 ********************************************************************************/
 
 *** 0.1 Install required packages: MACRO: Global - Local 	
-	local install_packages 0 
+	local install_packages 0
 	
 	if `install_packages' {
 		ssc install ietoolkit, 	replace
@@ -50,13 +50,15 @@
 	global data_1_2					"${data}/02-manejo-limpieza-datos"
 	
 	// Semana 2
-
+	
 	
 	// Semana 3
 	
 	
 *** 0.3 Setting up execution 
-	global primera_semana 0
+	global primera_semana 1
+	global segunda_semana 0 
+	global tercera_semana 0
 	
 ********************************************************************************
 ***	PART 1: Primera Semana  
@@ -75,8 +77,3 @@
 ********************************************************************************
 ***	PART 3: Tercera Semana 
 ********************************************************************************
-
-
-	
-	
-	
