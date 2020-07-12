@@ -15,21 +15,19 @@
 *** PART 0: Set initial configurations and globals
 ********************************************************************************/
 
-*** 0.0 Install required packages: MACRO: Global - Local 	
-	
-	local packages ietoolkit iefieldkit winsor estout outreg2 wbopendata 
+*** 0.0 Install required packages:
+	local packages ietoolkit iefieldkit winsor estout outreg2 wbopendata asdoc
 		
 	foreach pgks in `packages' {	
 	  				
 		capture which `pgks'
 		
 		if (_rc != 111) {
-			display as text in smcl "Package {it:`pgks'} is installed"
+			display as text in smcl "Paquete {it:`pgks'} está instalado "
 		}
 		
 		else {
-			display as error in smcl `"Package {it:`pgks'} needs to be installed from SSC in order to run this do-file;"' _newline ///
-			`"This package will be automatically installed if it is found at SSC."'
+			display as error in smcl `"Paquete {it:`pgks'} necesita instalarse."'
 			
 			capture ssc install `pgks', replace
 			
@@ -39,7 +37,7 @@
 			}
 			
 			else {
-				display as result in smcl `"Package `pgks' has been installed successfully"'
+				display as result in smcl `"Paquete `pgks' ha sido instalado."'
 			}
 		}
 	}
@@ -70,17 +68,17 @@
 	
 	// Semana 2
 	global codes_2_1				"${codes}/03-construccion-datos"
-	global codes_2_2				"${codes}/"
+	global codes_2_2				"${codes}/04-analisis-datos-1"
 	global data_2_1					"${data}/03-construccion-datos"
-	global data_2_2					"${data}/"	
+	global data_2_2					"${data}/04-analisis-datos-1"	
 	global outputs_2_1				"${outputs}/03-construccion-datos"
+	global outputs_2_2				"${outputs}/04-analisis-datos-1"
 	
 	// Semana 3
-	
-	
+
 *** 0.3 Setting up execution 
 	global primera_semana 0
-	global segunda_semana 1
+	global segunda_semana 0
 	global tercera_semana 0
 	
 ********************************************************************************
