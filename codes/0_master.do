@@ -78,9 +78,10 @@
 
 *** 0.3 Setting up execution 
 	global primera_semana 0
-	global segunda_semana 0
+	global segunda_semana 1
 	global tercera_semana 0
-	
+		
+
 ********************************************************************************
 ***	PART 1: Primera Semana  
 ********************************************************************************
@@ -93,8 +94,12 @@
 ***	PART 2: Segunda Semana  
 ********************************************************************************
 	if (${segunda_semana} == 1) {
-		do "${codes_2_1}/sesion_3.do"
-		do "${codes_2_2}/sesion_4.do"
+		do "${codes_2_1}/sesion_3.do"					// Crear base de dummy
+		do "${codes_2_1}/sesion_3_nodup.do"				// Creat base de datos sin duplicados
+		do "${codes_2_1}/sesion_3_clean.do"				// Crear base de datos limpia	
+		do "${codes_2_1}/sesion_3_hps.do"				// Crear HPS level dataset
+		do "${codes_2_2}/sesion_4_hpsc.do"				// Crear HPSC level dataset
+		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"
 	} 
 
 ********************************************************************************

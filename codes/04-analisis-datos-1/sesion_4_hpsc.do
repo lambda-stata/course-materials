@@ -2,6 +2,7 @@
 * Título:	Construcción de datos
 * Sesion: 	Sesión 4
 * Autor:	Rony Rodriguez-Ramirez
+* Proposito: Crear base al nivel HPSC
 *********************************************************************************
 	
 *** Outline:
@@ -39,6 +40,10 @@
 	gen plot    = substr(rshp_id, 3, 1)
 	gen season  = substr(rshp_id, 5, 1)
 	gen crop    = substr(rshp_id, 7, 1)
+	
+	label var plot 		"Plot Code"
+	label var season 	"Season Code"
+	label var crop		"Crop Code"
 	
 	drop rshp_id
 	foreach var in  plot season crop {
