@@ -75,10 +75,16 @@
 	global outputs_2_2				"${outputs}/04-analisis-datos-1"
 	
 	// Semana 3
+	global codes_3_1				"${codes}/05-analisis-datos-2"
+	global codes_3_2				"${codes}/"
+	global data_3_1					"${data}/05-analisis-datos-2"
+	global data_3_2					"${data}/"
+	global outputs_3_1				"${outputs}/05-analisis-datos-2"
+	global outputs_3_2				"${outputs}/"
 
 *** 0.3 Setting up execution 
 	global primera_semana 0
-	global segunda_semana 1
+	global segunda_semana 0
 	global tercera_semana 0
 		
 
@@ -99,7 +105,7 @@
 		do "${codes_2_1}/sesion_3_clean.do"				// Crear base de datos limpia	
 		do "${codes_2_1}/sesion_3_hps.do"				// Crear HPS level dataset
 		do "${codes_2_2}/sesion_4_hpsc.do"				// Crear HPSC level dataset
-		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"
+		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"	// Merge HPS and HPSC datasets
 	} 
 
 ********************************************************************************

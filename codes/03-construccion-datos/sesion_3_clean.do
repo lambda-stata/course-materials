@@ -15,7 +15,7 @@
 ********************************************************************************/
 
 *** 2.0 Cargar base de datos
-	use "${data_2_1}/agr_wide_nodup.dta" 
+	use "${data_2_1}/agr_wide_nodup.dta", clear
 	
 *** 2.1 Cultivated and Irrigation (Plot Season)
 	forvalues p = 1/2 {
@@ -31,10 +31,11 @@
 				replace seed_kg_P`p'S`s'C`c' 	= . if cult_P`p'S`s' == 0
 				replace harv_kg_P`p'S`s'C`c' 	= . if cult_P`p'S`s' == 0
 				replace consum_kg_P`p'S`s'C`c' 	= . if cult_P`p'S`s' == 0
+				replace sell_kg_P`p'S`s'C`c' 	= . if cult_P`p'S`s' == 0
 			}
 		}
 	}
-	
+		
 *** 2.3 Assert que si sean missings cuando cultivado es 0 		
 	forvalues p = 1/2 {
 		forvalues s = 1/3 {
@@ -47,6 +48,8 @@
 			}
 		}
 	}	
+	
+	drop key 
 	
 *** 2.3 Guardar base de datos
 	save "${data_2_1}/agr_wide_nodup_cleaned.dta", replace 

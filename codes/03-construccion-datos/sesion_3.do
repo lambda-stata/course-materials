@@ -35,22 +35,34 @@
 		
 			forvalues c = 1/2 {				
 				gen 		seed_kg_P`p'S`s'C`c' = runiform(1,20)
-				label var 	seed_kg_P`p'S`s'C`c' "Seed used: Crop C in Plot P in Season S "
+				label var 	seed_kg_P`p'S`s'C`c' 	"Seed used: Crop C in Plot P in Season S"
 				
 				gen 		harv_kg_P`p'S`s'C`c' = runiform(1,50)
-				label var 	harv_kg_P`p'S`s'C`c' "Harvested quantity: Crop C in Plot P in Season S "
+				label var 	harv_kg_P`p'S`s'C`c' 	"Harvested quantity: Crop C in Plot P in Season S"
 				
 				gen 		consum_kg_P`p'S`s'C`c' = runiform(1,50)
-				label var 	consum_kg_P`p'S`s'C`c' "Consumed quantity: Crop C in Plot P in Season S "
+				label var 	consum_kg_P`p'S`s'C`c' 	"Consumed quantity: Crop C in Plot P in Season S"				
+				replace 	consum_kg_P`p'S`s'C`c' = harv_kg_P`p'S`s'C`c' if consum_kg_P`p'S`s'C`c' > harv_kg_P`p'S`s'C`c'
 				
-				format seed_kg_P`p'S`s'C`c'  %10.2f
-				format harv_kg_P`p'S`s'C`c'  %10.2f
-				format consum_kg_P`p'S`s'C`c'  %10.2f
+				gen 		sell_kg_P`p'S`s'C`c' = harv_kg_P`p'S`s'C`c' - consum_kg_P`p'S`s'C`c'
+				label var 	sell_kg_P`p'S`s'C`c'	"Sold quantity: Crop C in Plot P in Season S"
+				
+				format 		seed_kg_P`p'S`s'C`c'  	%10.2f
+				format 		harv_kg_P`p'S`s'C`c'  	%10.2f
+				format 		consum_kg_P`p'S`s'C`c'  %10.2f	
+				format 		sell_kg_P`p'S`s'C`c'  	%10.2f
 			}
 		}
 	}
 	
-	// A.1.4 Create treatment
+	// A.1.4 Generate price at the crop level
+	forvalues c = 1/2 {
+	    gen	price_`c' =  runiform(1,15)
+		
+		label var price_`c' "Price Sold for Crop C"
+	}
+	
+	// A.1.5 Create treatment
 	gen 			rand = runiform()
 	egen 			treatment = cut(rand), group(4)
 	label var 		treatment "Treatment Status"

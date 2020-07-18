@@ -24,12 +24,14 @@
 
 	// 1.1.1 Keep variables relevantes
 	keep 	hhid 		///
+			price_*		///
 			seed_kg* 	///
 			harv_kg* 	///
-			consum_kg* 	
+			consum_kg* 	///
+			sell_kg* 	
 
 	// 1.1.2 Reshape
-	reshape long seed_kg harv_kg consum_kg, i(hhid) j(rshp_id) string
+	reshape long seed_kg harv_kg consum_kg sell_kg, i(hhid) j(rshp_id) string
 		
 	// 1.1.3 Label vars
 	label var seed_kg 	"Semila: Plot P in Season S of Crop C"
