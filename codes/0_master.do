@@ -100,7 +100,7 @@
 ***	PART 2: Segunda Semana  
 ********************************************************************************
 	if (${segunda_semana} == 1) {
-		do "${codes_2_1}/sesion_3.do"					// Crear base de dummy
+		do "${codes_2_1}/sesion_3.do"					// Crear base dummy
 		do "${codes_2_1}/sesion_3_nodup.do"				// Creat base de datos sin duplicados
 		do "${codes_2_1}/sesion_3_clean.do"				// Crear base de datos limpia	
 		do "${codes_2_1}/sesion_3_hps.do"				// Crear HPS level dataset

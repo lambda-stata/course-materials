@@ -9,6 +9,14 @@
 		1.1 Cargar datos
 		1.2 Duplicates and ID variable 
 		1.3 Export duplicates
+		
+***	Requerimientos: 
+	inputs: 	agr_wide
+	outputs: 	agr_wide_nodup
+	
+*** Objetivo: 
+	Este do file toma la base de datos de agricultura y elimina los duplicados 
+	para tener una base de datos sin duplicados
 	
 *********************************************************************************
 ***	PART 1: Variable ID y Duplicados
