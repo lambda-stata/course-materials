@@ -3,7 +3,8 @@
 	sysuse census.dta , clear
 
 // Run regressions ********************************
-
+	estimates clear 
+	
 	// Regression 1: nothing interesting
 	reg divorce marriage pop
 		est sto reg1
@@ -30,22 +31,22 @@
 	global regressions reg1 reg2 reg3 reg4
 
 	// outreg2
-	outreg2 [${regressions}] 			///
-	using "$outputs_3_1/outreg.xls" 	///
-	, replace excel
+	outreg2 [${regressions}] 							///
+		using "${outputs_3_1}/tablas/outreg.xls" 		///
+		, replace excel
 	
 	// estout
-	estout ${regressions} 				///
-	using "$outputs_3_1/estout.xls" 	///
-	, replace c(b & _star se)
+	estout ${regressions} 								///
+		using "${outputs_3_1}/tablas/estout.xls" 		///
+		, replace c(b & _star se) label
 
 	// xml_tab
-	xml_tab ${regressions} 				///
-	, save("$outputs_3_1/xml_tab.xls") ///
-		replace below
+	xml_tab ${regressions} 								///
+		, save("${outputs_3_1}/tablas/xml_tab.xls") 	///
+			replace below
 
 	// outwrite
-	outwrite ${regressions} 			///
-	using "$outputs_3_1/outwrite.xlsx" ///
-	, replace
+	outwrite ${regressions} 							///
+		using "${outputs_3_1}/tablas/outwrite.xlsx" 	///
+		, replace
 	

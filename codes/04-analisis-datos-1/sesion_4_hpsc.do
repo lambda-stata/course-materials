@@ -37,6 +37,7 @@
 	label var seed_kg 	"Semila: Plot P in Season S of Crop C"
 	label var harv_kg 	"Cosecha: Plot P in Season S of Crop C"
 	label var consum_kg	"Consumo: Plot P in Season S of Crop C"
+	label var sell_kg 	"Venta: Plot P in Season S of Crop C"
 	
 	// 1.1.4 Generate IDs per plot season crop
 	gen plot    = substr(rshp_id, 3, 1)

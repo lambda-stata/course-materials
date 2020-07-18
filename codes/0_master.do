@@ -16,7 +16,7 @@
 ********************************************************************************/
 
 *** 0.0 Install required packages:
-	local packages ietoolkit iefieldkit winsor estout outreg2 wbopendata asdoc
+	local packages ietoolkit iefieldkit winsor estout outreg2 wbopendata asdoc xml_tab outwrite
 		
 	foreach pgks in `packages' {	
 	  				
@@ -83,9 +83,9 @@
 	global outputs_3_2				"${outputs}/"
 
 *** 0.3 Setting up execution 
-	global primera_semana 0
-	global segunda_semana 0
-	global tercera_semana 0
+	global primera_semana 1
+	global segunda_semana 1
+	global tercera_semana 1
 		
 
 ********************************************************************************
@@ -112,7 +112,8 @@
 ***	PART 3: Tercera Semana 
 ********************************************************************************
 	if (${tercera_semana} == 1) {
-		do "${codes_1_1}/sesion_5.do"
-		do "${codes_1_2}/sesion_6.do"
+		do "${codes_3_1}/sesion_5_hpsc_constructed.do"
+		do "${codes_3_1}/sesion_5_hpsc_bal_tab.do"
+		do "${codes_3_1}/sesion_5_excel-tables.do"
+		* do "${codes_1_2}/sesion_6.do"
 	} 
-	
