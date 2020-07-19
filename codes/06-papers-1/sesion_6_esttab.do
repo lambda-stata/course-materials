@@ -22,7 +22,8 @@
 	xtset region
 
 ***	1.2 Correr regresiones
-
+	estimates clear 
+	
 	// Regression 1: nothing interesting
 	reg death marriage pop
 	
@@ -42,10 +43,10 @@
 	estadd local region "No"
 
 	// Regression 4: categorical control
-	reg divorce marriage pop i.region
+	reg 	divorce marriage pop i.region
 	
 	est sto reg4
-	estadd local region "Yes"
+	estadd local region "Si"
 	
 	// South region only
 	reg death marriage if region == 3
@@ -62,20 +63,19 @@
 	est sto w2
 
 *** 1.3 Exportar tables 
-
 	local regressions reg1 reg2 reg3 reg4
-
+	
 	*---------------------------------------------------------------------------
-	* Regresión simple
+	* Tabla simple
 	*---------------------------------------------------------------------------
 	esttab `regressions' using "${outputs_3_2}/tablas/t1_esttab_basic.csv", ///
 		replace
 	
 	*---------------------------------------------------------------------------
-	* Regresión agregando las etiquetas a las variables
+	* Tabla agregando las etiquetas a las variables
 	*---------------------------------------------------------------------------
 	esttab `regressions' using "${outputs_3_2}/tablas/t2_esttab_label.csv", ///
-		label	///	Add variable labels
+		label	///	Incluir las etiquetas
 		se		/// Display standard errors instead of t-statistics 
 		replace	
 			
@@ -83,12 +83,11 @@
 	* Removiendo variable omitida de las categoricas 
 	*---------------------------------------------------------------------------
 	esttab `regressions' using "${outputs_3_2}/tablas/t3_esttab_omitted.csv",	///
-		ci 																		/// Muestra los intervalos de confianza
 		noomit nobaselevels														/// Remueve variables omitidas por multicollinearity y variables categoricas (nivel base)
 		refcat(_cons "Omitted category: NE region", nolabel)					/// Agrega nota con información de la región omitida -- refcat() tiene más funcionalidades
 		addnotes("Add a note here." "Other custom note here.")  				/// Cada nota se agregará en una nueva linea
 		label 																	///
-		replace		
+		replace
 
 	*---------------------------------------------------------------------------
 	* La opción 'drop' le permite eliminar variables de la tabla final.
@@ -101,9 +100,8 @@
 	*---------------------------------------------------------------------------
 	
 	esttab `regressions' using "${outputs_3_2}/tablas/t4_esttab_scalar.csv", 	///
-		ci 																		/// Muestra los confidence intervals
-		drop(*.region*)															///	Remueve los efectos fijos														
-		scalars("region Region controls")  										/// Agrega una nueva fila que indica donde están los efectos fijos
+		drop(*.region*)															///	Remueve variables dentro de los ()														
+		scalars("region Region FE")  											/// Agrega una nueva fila que indica donde están los efectos fijos
 		addnotes("Add a note here." "Other custom note here.")  				/// Cada nota se agregará en una nueva linea
 		label 																	///
 		replace	
@@ -114,10 +112,11 @@
 	*---------------------------------------------------------------------------
 	esttab `regressions' using "${outputs_3_2}/tablas/t5_esttab_titles.csv", 	///
 		mtitles("Title 1" "Title 2" "Title 3" "Title 4") 						/// Muestra títlos de las columnas
-		se																		/// Display standard errors en vez de of t-statistics 
+		b(3) se(3)																/// Display standard errors en vez de of t-statistics 
 		drop(*.region*) 														///																
 		scalars("region Region controls") 										/// 
-		addnotes("Add a note here." "Other custom note here.")  				/// Cada nota se agregará en una nueva linea
-		label 																	///
+		obslast label nocons nogaps nonotes 									///
 		replace
+		
+		
 	

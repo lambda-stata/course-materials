@@ -24,7 +24,6 @@
 ***	1.1 Load dataset
 	use "${data_3_2}/Burde and Linden 2013.dta", clear
 		
-		
 *** 1.2 Fix labels
 	label define treatment 0"Control" 1"Treatment"
 	label values treatment treatment 
@@ -43,7 +42,7 @@
 	label var f07_nearest_scl 		"Distance to nearest formal school (non village-based school)"
 
 *** 1.2 Crear variable atrición
-	gen 		attrition = f07_observed== 1 & s08_observed == 0 
+	gen 		attrition = f07_observed == 1 & s08_observed == 0 
 	label var 	attrition "Attrition" 
 
 *** 1.3 Crear variable interacción entre atrición y treatment
@@ -67,7 +66,6 @@
 					f07_num_sheep_cnt 			///
 					f07_nearest_scl
 
-
 	// Table 3
 	gen control = 1-treatment
 	iebaltab ${panela} ${panelb} ${panelc},	///
@@ -77,13 +75,15 @@
 		
 		
 	// Table 3: With correct specifications
-	foreach var of global panela {
-	    eststo reg1: qui reg `var' if treatment==1 & f07_observed==1 					/*Treatment Average*/ 
-		eststo reg2: qui reg `var' if treatment==0 & f07_observed==1 					/* Control Average */ 
-		eststo reg3: qui reg `var' treatment if f07_observed==1 , cluster(clustercode) /* Estimated Difference */ 
-	}
+	est clear 
+	eststo reg1: qui reg attrition if treatment==1 & f07_observed==1 					/* Treatment Average		*/ 
+	eststo reg2: qui reg attrition if treatment==0 & f07_observed==1 					/* Control Average 			*/ 
+	eststo reg3: qui reg attrition treatment if f07_observed==1 , cluster(clustercode) 	/* Estimated Difference 	*/ 
+
+	local regs reg1 reg2 reg3 
+	esttab `regs' using "${outputs_3_2}/tablas/tab_3.csv", se replace
 	
-	esttab reg1 reg2 reg3 using "${outputs_3_2}/tablas/tab_3.csv", replace
+	
 	
 	
 	

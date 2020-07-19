@@ -82,10 +82,13 @@
 	global outputs_3_1				"${outputs}/05-analisis-datos-2"
 	global outputs_3_2				"${outputs}/06-papers-1"
 
+	// Semana 4 
+	
 *** 0.3 Setting up execution 
 	global primera_semana 0
 	global segunda_semana 0
 	global tercera_semana 0
+	global cuarta_semana  0
 		
 
 ********************************************************************************
@@ -115,5 +118,17 @@
 		do "${codes_3_1}/sesion_5_hpsc_constructed.do"
 		do "${codes_3_1}/sesion_5_hpsc_bal_tab.do"
 		do "${codes_3_1}/sesion_5_excel-tables.do"
-		* do "${codes_1_2}/sesion_6.do"
+		do "${codes_3_2}/sesion_6_esttab.do"
+		do "${codes_3_2}/sesion_6_rct_tab_1.do"
+		do "${codes_3_2}/sesion_6_rct_tab_3.do"
 	} 
+
+********************************************************************************
+***	PART 4: Cuarta Semana 
+********************************************************************************
+	if (${cuarta_semana} == 1) {
+		do "${codes_4_1}/"
+	} 	
+	
+	
+	

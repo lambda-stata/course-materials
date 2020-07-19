@@ -28,20 +28,21 @@
 	matrix m1 = J(9,9,.)
 	matrix list m1 
 	
-	
 *** 1.3 Panel A: Household Surveyed	
 	// Identified
 		// Fall 2007 Survey (Row 1 - Col 1 / 4)
 		sum f07_hh_observed if f07_hh_covered == 1 & treatment == 1
-		matrix m1[2, 2] = `r(N)'
+		
+		matrix m1[2, 2] = `r(N)'		
 		matrix m1[4, 2] = round(`r(mean)', .001) 	// Percent (Row 3)
-			
+					
 		sum f07_hh_observed if f07_hh_covered == 1 & treatment == 0
 		matrix m1[2, 3] = `r(N)'
 		matrix m1[4, 3] = round(`r(mean)', .001)	// Percent (Row 3)
 		
 		matrix m1[2,4] = m1[2,2] - m1[2,3]
-		matrix m1[4,5] = m1[2,2] + m1[2,3]
+		matrix m1[2,5] = m1[2,2] + m1[2,3]
+		 
 		
 		// Sprin 2008 Survey (Row 1 - Col 5/9)
 		sum s08_hh_observed if s08_hh_covered == 1 & treatment == 1
@@ -83,8 +84,8 @@
 			
 		sum f07_hh_observed if f07_hh_covered == 1
 		matrix m1[4,5] = round(`r(mean)', .001) 	// Percent (row 3)
-		mat list m1
 		
+	//	Percent of households surveyed (Col 8 and 9)	
 		reg s08_hh_observed treatment if s08_hh_covered == 1, cluster(clustercode)
 		matrix m1[4,8] = round(_b[treatment], .001)
 		matrix m1[5,8] = round(_se[treatment], .001)
@@ -92,7 +93,8 @@
 		sum s08_hh_observed if s08_hh_covered == 1
 		matrix m1[4,9] = round(`r(mean)', .001) 	// Percent (row 3)
 		
-		
+		mat list m1
+			
 *** 1.4 Panel B: Household with eligible children
 		// Household with children
 		sum f07_with_kids if f07_with_kids == 1 & treatment == 1
@@ -132,7 +134,7 @@
 		sum s08_with_kids if s08_hh_observed == 1 & treatment == 1
 		matrix m1[8,6] = round(`r(mean)', .001)
 		
-		sum s08_with_kids if s08_hh_observed == 1 & treatment == 0	
+		sum s08_with_kids if s08_hh_observed == 1 & treatment == 0
 		matrix m1[8,7] = round(`r(mean)', .001)
 		
 		reg s08_with_kids treatment if s08_hh_observed == 1, cluster(clustercode)
@@ -142,7 +144,6 @@
 		sum s08_with_kids if s08_hh_observed == 1
 		matrix m1[8,9] = round(`r(mean)', .001) 	
 		
-
 	mat list m1
 	
 *** 1.5 Matrix to dataset and export to excel
@@ -153,20 +154,18 @@
 	
 	//	Variables Column 1
 	replace c1 = "Panel A. Households surveyed" if _n == 1
-	replace c1 = "Identified" 	if _n == 2
-	replace c1 = "Surveyed" 	if _n == 3 
-	replace c1 = "Percent of households" 	if _n == 4
-	replace c1 = "surveyed" 				if _n == 5
+	replace c1 = "Identified" 					if _n == 2
+	replace c1 = "Surveyed" 					if _n == 3 
+	replace c1 = "Percent of households" 		if _n == 4
+	replace c1 = "surveyed" 					if _n == 5
 	
 	replace c1 = "Panel B. Households with eligible children" if _n == 6
-	replace c1 = "Households with children" if _n == 7
-	replace c1 = "Percentage with children" if _n == 8
+	replace c1 = "Households with children" 	if _n == 7
+	replace c1 = "Percentage with children" 	if _n == 8
 	
 *** Outsheet
 	outsheet using "${outputs_3_2}/tablas/tab_1.csv", comma nonames noquote nolabel replace
 	
-		
-		
-		
-		
+	
+	
  	
