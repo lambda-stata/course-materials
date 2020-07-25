@@ -18,5 +18,3 @@ Este es un curso diseñado y enseñado por [Rony Rodriguez-Ramirez](http://rrmax
 ## Licencia
 
 El material en este repositorio está disponible bajo la licencia [MIT](http://opensource.org/licenses/mit-license.php). 
-
-## Este es una prueba

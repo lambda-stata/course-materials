@@ -21,19 +21,19 @@
 	use "${data_4_1}/Card and Krueger 1994.dta", clear 
 
 *** 1.2 Componer labels y tipo de variables
-	label var bk "Burger King"
-	label var kfc "KFC"
-	label var roys "Roy Rogers"
-	label var wendys "Wendy's "
-	label var co_owned "Company-owned"
-	label var emptot "FTE employment"
-	label var wage_st "Starting Wage"
-	label var pmeal "Price of full meal"
-	label var hrsopen "Hours open (weekday)" 
-	label var emptot2 "FTE employment"
-	label var wage_st2 "Starting Wage"
-	label var pmeal2 "Price of full meal"
-	label var hrsopen2 "Hours open (weekday)" 
+	label var bk 		"Burger King"
+	label var kfc 		"KFC"
+	label var roys 		"Roy Rogers"
+	label var wendys 	"Wendy's "
+	label var co_owned 	"Company-owned"
+	label var emptot 	"FTE employment"
+	label var wage_st 	"Starting Wage"
+	label var pmeal 	"Price of full meal"
+	label var hrsopen 	"Hours open (weekday)" 
+	label var emptot2 	"FTE employment"
+	label var wage_st2 	"Starting Wage"
+	label var pmeal2 	"Price of full meal"
+	label var hrsopen2 	"Hours open (weekday)" 
 
 ***	1.3 Tabla 2: Mean of key variables
 	global 	tab2_1 		///
@@ -69,13 +69,13 @@
 	//	2.1.1 Distribution of Store Type (percentages)
 	//	------------------------------------------------------------------------
 	eststo clear 
-	estpost ttest $tab2_1, by(pa) uneq
+	estpost ttest $tab2_1, by(pa) uneq 
 	
 	//	Excel
 	esttab using "${outputs_4_1}/tablas/tab2_1.csv", 	///
 		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
 		wide nonumber noobs nomtitle label replace
-
+		
 	// 	Latex
 	esttab using "${outputs_4_1}/tablas/tab2_1.tex", 	///
 		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
@@ -92,7 +92,7 @@
 	esttab using "${outputs_4_1}/tablas/tab2_2.csv", 	///
 		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
 		wide nonumber nomtitle noobs label replace		
-	
+		
 	//	Latex
 	matrix m1 = J(8,4,.)
 	matrix list m1 
@@ -133,10 +133,16 @@
 		replace c1 = "Price of full meal" 			if _n == 5 
 		replace c1 = "Hours open (weekday)" 		if _n == 7
 		
-		
+		replace c1 = "" if c1 == "." 
+		replace c4 = "" if c4 == "."
+				
+		// Excel
+		outsheet using "${outputs_4_1}/tablas/tab2_2.csv", 		////
+				 comma nonames noquote nolabel replace		
+				
 		replace c`c(k)' =  c`c(k)' + "\\"
 		replace c`c(k)' =  "" + "\\" if c`c(k)' == ".\\"
-
+	
 		foreach col of varlist c1-c3 {
 			replace `col' = "" if `col' == "."
 			replace `col' = `col' + "&"
@@ -211,7 +217,6 @@
 		// Exrpot to TeX
 		outsheet using "${outputs_4_1}/tablas/tab2_3.tex", 		////
 				 nonames noquote nolabel replace	
-	
 	restore
 	
 ********************************************************************************
@@ -331,7 +336,7 @@
 	esttab `regressions'						///
 		using "${outputs_4_1}/tablas/tab4.tex", ////
 		keep(nj gap)							///
-		cells("b(fmt(2))" "t(par fmt(2))")		///
+		cells("b(fmt(2))" "se(par fmt(2))")		///
 		stat(controls regions rmse test, 		///
 			labels("Controls for chain and ownership" "Controls for region" "Standard error of regression" "Probability value for controls"))	///
 		label nogaps fragment nomtitle nonumbers nodep nolines	///
