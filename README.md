@@ -4,11 +4,11 @@
 
 1. Programación 101 \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/01-programming-intro/01-programming-intro.pdf)\]
 2. Manejo y Limpieza de Datos \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/02-manejo-limpieza-datos/02-manejo-limpieza-datos.pdf)\]
-3. Construcción de Datos
-4. Análisis de Datos
+3. Construcción de Datos \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/03-construccion-datos/03-construccion-datos.pdf)\]
+4. Análisis de Datos \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/04-analisis-datos-1/04-analisis-datos-1.pdf)\]-\[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/05-analisis-datos-2/05-analisis-datos-2.pdf)\]
 5. Programando modelos de evaluación de impacto
-   1. RCTs y Datos Panels
-   2. Diferencias y Diferencias
+   1. RCTs y Datos Panels \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/06-papers-1/06-papers-1.pdf)\]
+   2. Diferencias y Diferencias \[[Slides](https://github.com/lambda-stata/course-materials/blob/master/lectures/07-papers-2/07-papers-2.pdf)\]
    3. Regresión Discontinua
 
 ## Detalles
