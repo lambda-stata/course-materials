@@ -1,0 +1,197 @@
+%\input{tcilatex}
+\documentclass{article}
+\usepackage[flushleft]{threeparttable}						
+%\usepackage[nolists,heads]{endfloat}
+\usepackage{pdflscape}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{multirow}
+%\usepackage{slashbox}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[skip = 0pt]{caption}
+\captionsetup{justification=centering}
+\usepackage{subcaption}
+\usepackage{footnote}
+\usepackage{fullpage}
+\usepackage{mathrsfs,amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{changepage}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage[table]{xcolor}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{olivine}{rgb}{0.6, 0.73, 0.45}
+\usepackage{array}
+\usepackage[plainpages=false,pdfpagelabels]{hyperref}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{nameref}
+%\usepackage[all]{hypcap}
+%\usepackage{ctable}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{apacite}
+\usepackage{rotating}
+\usepackage[T1]{fontenc}
+\usepackage{lscape}
+\usepackage{adjustbox}
+\usepackage{afterpage}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{geometry}
+	
+%font
+\usepackage[sc]{mathpazo}
+
+%DAG
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%\tikzset{mynode/.style={draw,text width=1in,align=center}}
+\tikzset{mynode/.style={draw,align=center}}
+
+\makeatletter\let\expandableinput\@@input\makeatother
+\MakeOuterQuote{"}
+\setcounter{MaxMatrixCols}{10}
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{assumption}{Assumption}
+
+% new environment for landscape tables    
+\newenvironment{ltable}{\begin{landscape}\begin{table}}{\end{table}\end{landscape}}
+\newenvironment{ltablelong}{\begin{landscape}\begin{longtable}}{\end{longtable}\end{landscape}}
+
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\makeatletter
+\newcommand\primitiveinput[1]
+{\@@input #1 }
+\makeatother
+
+% tables numbers setup
+%\numberwithin{table}{section}
+
+% colors
+\usepackage{colortbl}
+\usepackage{url}
+\urlstyle{rm}
+\definecolor{darkblue}{rgb}{0,0,.4}
+\hypersetup{colorlinks=true, 
+			breaklinks=true, 
+			citecolor=darkblue, 
+			linkcolor=darkblue, 
+			menucolor=darkblue, 
+			urlcolor=darkblue}
+
+% Tables new command
+\newcommand{\returnupdates}{%
+Return to \nameref{sec:updates}.%
+}
+
+%-----------------------------------------------------------------
+% BEGIN 
+%-----------------------------------------------------------------
+\begin{document}
+%-----------------------------------------------------------------
+\title{Sesión 6: Exportación de Tablas} 
+\author{Rony Rodriguez-Ramirez}
+\maketitle
+%-----------------------------------------------------------------
+% Sección: Tablas
+%-----------------------------------------------------------------
+\newpage 
+\section{Tablas}
+%-----------------------------------------------------------------
+% Tabla 2
+%-----------------------------------------------------------------
+\setcounter{table}{1} 
+
+\begin{table}[H]
+	\centering
+	\label{tab:Table}
+		\begin{threeparttable}
+			\caption{Mean of Key Variables}
+			\begin{tabular}{@{}l*{3}{c}@{}}
+                \toprule
+				& \multicolumn{2}{c}{Stores in:} & 								\\ \cmidrule(lr){2-3}
+				Variable & NJ & PA & $tâ$										\\
+				\midrule
+				1. \textit{Distribution of Store Types (percentages):} 	& & & 	\\
+				\input{tablas/tab2_1.tex}														
+																		& & & 	\\		
+				2. \textit{Means in Wave 2:}							& & & 	\\			
+																		& & & 	\\	
+				\input{tablas/tab2_2.tex}				
+																		& & &	\\														
+				3. \textit{Means in Wave 2:}							& & & 	\\
+																		& & & 	\\			
+				\input{tablas/tab2_3.tex}                		
+				\bottomrule
+			\end{tabular}
+			\begin{tablenotes}
+				\setlength\labelsep{0pt}
+				\footnotesize
+				\item \textit{Notes}: See text for definitions. Standard errors are given in parentheses.
+				\item ~~$^a$~Test of equality of means in New Jersey and Pennsylvania.
+			\end{tablenotes}
+		\end{threeparttable}
+\end{table}
+%-----------------------------------------------------------------
+% Tabla 4
+%-----------------------------------------------------------------
+\setcounter{table}{3} 
+
+\begin{table}[H]
+	\centering
+	\label{tab:Table}
+		\begin{threeparttable}
+			\caption{Reduced-form modles for change in employment}
+			\begin{tabular}{@{}l*{5}{c}@{}}
+				\toprule
+				& \multicolumn{5}{c}{Model}								\\ \cmidrule(l){2-6}
+				Indendent variable & (i) & (ii) & (iii) & (iv) & (v) 	\\ \midrule
+				\primitiveinput{tablas/tab4.tex}
+				\bottomrule
+			\end{tabular}
+			\begin{tablenotes}
+				\setlength\labelsep{0pt}
+				\footnotesize
+				\item \textit{Notes}: Standard errors are given in parentheses. 
+				The sample consists of 357 stores with available data on employment and starting wages in waves 1 and 2. 
+				The dependent variable in all models is change in FTE employment. The mean and standard deviation of 
+				the dependent variable are -0.237 and 8.825, respectively. All models include a n unrestricted constant (not reported).
+				\item ~~~$^{a}$Proportional increase in starting wage necessary to raise starting wage to new minimum rate. For stores in Pennsylvania the wage gap is 0
+				\item ~~~$^{d}$Three dummy variables for chain type and whether or not the store is company owned are included.
+				\item ~~~$^{c}$Dummy variables for two regions of New Jersey and two regions of eastern Pennsylvania are included.
+				\item ~~~$^{d}$Probability value of joint F test for exclusion of all control variables.
+			\end{tablenotes}
+		\end{threeparttable}
+\end{table}
+%-----------------------------------------------------------------
+% END ------------------------------------------------------------
+%-----------------------------------------------------------------
+\end{document}
+%-----------------------------------------------------------------

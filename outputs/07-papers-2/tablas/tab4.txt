@@ -1,0 +1,15 @@
+Table 4: Reduced-Form Models for Change in Employment						
+		(1)	(2)	(3)	(4)	(5)
+VARIABLES	LABELS	i	ii	iii	iv	v
+						
+nj	New Jersey dummy	2.33*	2.30*			
+		(1.19)	(1.20)			
+gap	Initial wage gap			15.65**	14.92**	11.98
+				(6.08)	(6.21)	(7.42)
+						
+Controls for chain and ownership		no	yes	no	yes	yes
+Controls for region		no	no	no	no	yes
+rmse		8.791	8.785	8.757	8.759	8.752
+Probability value for controls			0.344		0.437	0.405
+Standard errors in parentheses						
+*** p<0.01, ** p<0.05, * p<0.1						

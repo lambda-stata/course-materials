@@ -83,6 +83,12 @@
 	global outputs_3_2				"${outputs}/06-papers-1"
 
 	// Semana 4 
+	global codes_4_1				"${codes}/07-papers-2"
+	global codes_4_2				"${codes}/08-papers-3"
+	global data_4_1					"${data}/07-papers-2"
+	global data_4_2					"${data}/08-papers-3"
+	global outputs_4_1				"${outputs}/07-papers-2"
+	global outputs_4_2 				"${outputs}/08-papers-3"
 	
 *** 0.3 Setting up execution 
 	global primera_semana 0
@@ -127,8 +133,8 @@
 ***	PART 4: Cuarta Semana 
 ********************************************************************************
 	if (${cuarta_semana} == 1) {
-		do "${codes_4_1}/"
-	} 	
+		do "${codes_4_1}/sesion_7_did.do"
+	}
 	
 	
 	
