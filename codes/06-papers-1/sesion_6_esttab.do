@@ -9,6 +9,7 @@
 	1. 	Analisis
 		1.1 Load data
 		1.2 Correr regresiones
+		1.3 Exportar tables 
 	
 	Input: 	census.dta
 	Output: tablas

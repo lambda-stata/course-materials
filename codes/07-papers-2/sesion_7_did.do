@@ -8,9 +8,19 @@
 *** Outline:
 	1. 	Analisis
 		1.1 Load data
-		1.2 Correr regresiones
+		1.2 Componer labels y tipo de variables
+		1.3 Tabla 2: Mean of key variables
+	2. Tabla 2
+		2.1 Esttab las variables
+			2.1.1 Distribution of Store Type (percentages)
+			2.1.2 Means in Wave 1
+			2.1.3 Means in Wave 2
+	3. Tabla 3
+		3.1 Generar variables necesarias para el análisis
+		3.2 Exportar resultados utilizando outreg2 
+		3.3 Exportar resultados utilizando esttab
 	
-	Input: 	census.dta
+	Input: 	Card and Krueger 1994
 	Output: tablas
 	
 ********************************************************************************
@@ -64,7 +74,7 @@
 ***	PART 2: TABLA 2
 ********************************************************************************	
 
-*** 2.1 Esttab the variables
+*** 2.1 Esttab las variables
 	//	------------------------------------------------------------------------
 	//	2.1.1 Distribution of Store Type (percentages)
 	//	------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 /********************************************************************************
-* Título:	Análisis de Datos
-* Sesion: 	Sesión 5
-* Autor:	Rony Rodriguez-Ramirez
-* Proposito: Crear base al nivel HPSC constructed (construída)
+* Título:		Análisis de Datos
+* Sesion: 		Sesión 5
+* Autor:		Rony Rodriguez-Ramirez
+* Proposito: 	Exportar tablas
 *********************************************************************************
 	
 *** Outline:
@@ -14,7 +14,7 @@
 		1.5 Matrix to dataset and export to excel
 		1.6 Outsheet
 	
-	Input: 	census.dta
+	Input: 	Burde and Linden 2013_HH
 	Output: tablas
 	
 *********************************************************************************

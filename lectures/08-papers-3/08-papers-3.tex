@@ -9,7 +9,8 @@
 
 \usefonttheme[onlymath]{serif}
 \usepackage{amsmath}
-\usepackage{remreset}
+\RequirePackage{silence}
+\WarningFilter{remreset}{The remreset package}
 \usepackage{ragged2e}
 \usepackage{booktabs}
 \usepackage{makecell}
@@ -21,6 +22,12 @@
 \usepackage[justification=centering]{caption}
 \captionsetup{skip=0pt}
 \graphicspath{{./fig/}}
+
+% colors
+\usepackage{colortbl}
+\usepackage{url}
+\urlstyle{rm}
+\definecolor{darkblue}{rgb}{0,0,.4}
 
 \makeatletter
 \let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry
@@ -40,8 +47,8 @@
 % Title Page
 %==============================================================
 %Information to be included in the title page:
-\title{Exportando tablas en Stata I}
-\subtitle{Replicación de Papers\\Basado en ``Nice and fast tables in Stata'' del Banco Mundial}
+\title{Exportando tablas en Stata III}
+\subtitle{Replicación de Papers}
 \author{Rony Rodriguez-Ramírez} 
 \institute{LAMBDA}
 \titlegraphic{\hfill\includegraphics[height=1.5cm]{dime}}
@@ -53,88 +60,223 @@
 	\maketitle 
 \end{frame}
 %------------------------------------------------
-\section{Introducción}
+\section{Intro to Git}
 %-----------------------------------------------
-\subsection{Introducción}
+\subsection{Intro to Git}
 %-----------------------------------------------
-\begin{frame}[t]{Inputs}
-	\begin{itemize}
-		\item Al incorporar tablas en documentos, es común copiar y pegar resultados y formatearlos en Word.
-		\item En nuestra experiencia, esta práctica es a menudo una restricción a la reproducibilidad.
-	\end{itemize}
-\end{frame}
-%------------------------------------------------
-\section{Dos etapas para programar tablas}
-%-----------------------------------------------
-\subsection{Dos etapas para programar tablas}
-%-----------------------------------------------
-\begin{frame}[t]
-	\frametitle{Antes de implementar el código, pregúntate}
+\begin{frame}
+	\frametitle{Antes de la sesion:}
 
-	\begin{itemize}[<+->]
-		\item ¿Necesito que esta salida se pueda compartir inmediatamente sin procesamiento posterior?
-		\item ¿Esta salida está lista para su publicación, o solo para descubrimiento y exploración?
-		\item ¿Necesito poder ajustar el formato y redondeo de números más tarde?
-		\item ¿Tendré que ajustar el diseño y el formato de la tabla más adelante?
-		\item ¿Cuál será el flujo de trabajo requerido cuando vuelva a producir esta tabla?
-		\item ¿Qué pasará con la tabla si modifico modelos, parámetros u otros componentes centrales?
-		\item ¿Es probable que altere los modelos, parámetros u otros componentes principales?
+	\begin{itemize}
+		\item Confirmemos que tienes una cuenta en GitHub: \hyperlink{https://github.com/join}{https://github.com/join}
+		\item Instalar GitKraken: \hyperlink{https://www.gitkraken.com/}{https://www.gitkraken.com/}
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
 \begin{frame}
-	\frametitle{Dos procesos}
+	\frametitle{Intro to Git}	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.35\textwidth]{finaldoc.pdf}
+	\end{figure}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{¿Por qué Git?}
+
+	\begin{itemize}
+		\item Nos permite hacer rastreo de una documento. 
+		\item ¿Quién lo hizo? ¿Qué modificaciones pasaron? ¿Por qué se hicieron estos cambios?
+		\item Nos facilita colaboración entre personas.
+		\item Podemos eliminar el problema de ``copia conflictiva'' en Dropbox. 
+		\item Podemos configurar nuestro flujo de trabajo para replicaciones.
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Intro to Git}
+
+	Tres conceptos claves en Git:
+
+	\begin{itemize}
+		\item Clonar (Clone)
+		\item Cometer (Commit)
+		\item Rama (Branch)
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{¿Qué es clonar}
+
+	Clonar es similar a descargar un repositorio en su computadora
+
+	La diferencia entre clonar y descargar radica en que Git clona una repositorio y recuerda de donde se ha descargado este repositorio. Esto es necesario ya que Git conoce donde se debe compartir las ediciones que se hacen a una archivo específico de una repositorio.
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Clonar un repositorio}
+
+	\begin{center}
+		¿Cómo clonar un repositorio? \\ Live Preview
+	\end{center}
+	
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Explorando el clon}
+
+	Dos puntos a tomar en cuenta en torno a los repositorios: 
+
+	\begin{itemize}
+		\item Commits
+		\item Branches
+	\end{itemize}
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{¿Qué es una commit?}
+
+	\begin{itemize}
+		\item En lugar de tener una lista de cada versión guardada de un archivo, en Git usamos commits para indicar cuál es cada diferencia significativa entre dos versiones de nuestra carpeta de proyecto.
+		\item Cada commit es una snapshot de todos los archivos de un proyecto. Git lista cada snapshot y lo compara con el snapshot anterior.
+		\item Cada commit tiene una tiempo y rastreo de quién hizo el commit.  
+	\end{itemize}
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{¿Como hacer un commit?}
+
+	\begin{center}
+		Live Preview
+	\end{center}
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Introduciendo branches (ramas)}
 
 	\begin{columns}
-		\begin{column}[t]{0.5\textwidth}
-			\textbf{Stage 1:} 
+		\begin{column}{0.5\textwidth}
 			\begin{itemize}
-				\item Tablas mínimamente formateadas y anotadas
-				\item El diseño de la tabla se ajustará repetidamente
-				\item No pierdas mucho tiempo haciendo que tus tablas se vean súper bonitas en esta etapa
+				\item Branc es la \textbf{\textit{característica clave}} clave de Git.
+				\item Las ramas nos permite crea una copia del código donde nosotros podemos experimentar. Si nos gusta el resultado podemos unir nuestro experimento con el projecto principal.
 			\end{itemize}
 		\end{column}
-		\begin{column}[t]{0.5\textwidth}  %%<--- here
-			\textbf{Stage 2:} 
-			\begin{itemize}
-				\item Compartir tablas fáciles de leer con investigadores o formuladores de políticas.
-				\item Salida reproducible y con buen formato, lista para su publicación.
-				\item El equipo ha acordado el conjunto básico de resultados y cómo presentarlos.
-			\end{itemize}
+		\begin{column}{0.5\textwidth}
+			\begin{center}
+			 \includegraphics[width=1\textwidth]{git.png}
+			 \end{center}
 		\end{column}
 	\end{columns}
 
 \end{frame}
 %-----------------------------------------------
 \begin{frame}
-	\frametitle{Eligiendo software}
+	\frametitle{Más materiales}
 
-	\begin{columns}[t]
-		\begin{column}{00.5\textwidth}
-			\textbf{Excel:} 
+	\begin{itemize}
+		\item Lamentablemente por tiempo no podremos introducir más features de Git. 
+		\item En cavas podrás encontrar más materiales.
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\section{Regresión discontinua}
+\subsection{Regresión discontinua}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Intro: RDD}
 
-			Ampliamente adoptado y accesible.
-			El formateo es un proceso en gran parte manual, que ralentiza las ejecuciones de replicación.
-		\end{column}
-		\begin{column}{00.5\textwidth}
-			\textbf{\LaTeX:}
+	\begin{itemize}
+		\item Presentado por primera vez para estudiar el impacto del reconocimiento al mérito por Thistlethwaite \& Campbell (1960).
+		\item Sin embargo, solo comenzó a llamar la atención en economía desde finales de la década de 1990.
+		\item Pero ¿qué es una discontinuidad?
+		\begin{itemize}
+			\item Una ruptura brusca en los valores de una función.
+			\item Matemáticamente, estamos hablando de una ecuación por partes (piecewise equation):
+			$$
+			f(x) = \left\{
+			\begin{array}{ll}
+			\frac{1}{2} x, 	& \quad x < 5 \\
+			2+\frac{1}{2}x,  & \quad x \geq 5
+			\end{array}
+			\right.
+			$$
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Uso de RDD}
 
-			Tablas de actualización automática en informes y presentaciones. Costo fijo en el aprendizaje del lenguaje de formateo.
-		\end{column}	
-	\end{columns}
+	\begin{itemize}
+		\item No tenemos un RCT y nos preocupan las variables endógenas.
+		\item RDD utiliza la asignación de discontinuidad exógena para estimar los efectos causales; es decir, las observaciones de un lado de la ruptura terminan siendo muy similares a las del otro lado.
+		\item Esencialmente, terminamos con grupos equilibrados pero no tenemos una asignación de tratamiento aleatorizada.
+	\end{itemize}
 
 \end{frame}
 %-----------------------------------------------
 \begin{frame}
-	\frametitle{Esquema}
+	\frametitle{Prinicipios de RDD}
+
+	Randomización local: 
+
+	\begin{itemize}
+		\item El estado de tratamiento es una función determinista de una variabla $a$, por lo cual cuando conocemos $X$ conocemos el estado de tratamiento $D_x$. 
+		\item El estado de tratamiento es una función discontinua de $a$ porque no importa que tan cerca X llegue al corte, $D_x$ continua sin cambios hasta que el corte se ha alcanzado.
+		$$
+		D_x = 
+		\begin{cases}
+		1 &\text{if}~X \geq \text{cutoff} \\  
+		0 &\text{if}~X < \text{cutoff} 
+		\end{cases}
+		$$
+	\end{itemize}
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Prinicipios de RDD}
+
+	\begin{itemize}
+		\item Llamamos a nuestra variable de asignación $X$, variable en ejecución (forcing or running variable).
+		\item Un punto importante, es que esta variable no es ortogonal a:
+		\begin{itemize}
+			\item Las características observables de los individuos. 
+			\item Las características no observables de los individuos.
+		\end{itemize}
+	\end{itemize}
+	
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{RD como una randomización local}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\textwidth]{rdd.pdf}
+	\end{figure}
+
+\end{frame}
+%-----------------------------------------------
+\begin{frame}
+	\frametitle{Dos condiciones claves en RDDs}
 
 	\begin{enumerate}
-		\item Flujo de trabajo para la creación de tablas
-		\item Opciones de softwares
-		\item \texttt{esttab} demo
-	\end{enumerate}	
+		\item El tratamiento en la población debe depender en que si la variable observada excede el valor crítico denota como $c$.
+		\item Los individuos no tiene un control preciso de la variable de asignación.
+		\begin{itemize}
+			\item "Sin control preciso" significa que entre los que puntúan cerca del umbral, es cuestión de "suerte" en cuanto a qué lado del umbral aterrizan.
+			\item Las personas que marginalmente pasan el corte o quedan atras, son asumidos como identicos (bastante similares).
+		\end{itemize}
+	\end{enumerate}
 
 \end{frame}
+%-----------------------------------------------
+
 %==============================================================
 \miniframesoff 	
 

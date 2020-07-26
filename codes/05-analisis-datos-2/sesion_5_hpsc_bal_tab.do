@@ -7,7 +7,9 @@
 	
 *** Outline:
 	1. 	Analisis
-	
+		1.1 Cargar base de datos
+		1.2 Tablas 
+		
 	Input: 	agr_merge_hps_hpsc_constructed
 	Output: tablas
 	
