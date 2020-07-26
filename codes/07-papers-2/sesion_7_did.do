@@ -259,49 +259,46 @@
 	//	------------------------------------------------------------------------
 	// 3.2 Exportar resultados utilizando outreg2 
 	//	------------------------------------------------------------------------
-	#delimit ; 
-	qui reg d_emp nj 												/* Col 1 */; 
-			outreg2 using "${outputs_4_1}/tablas/tab4.xls",  
-			bdec(2) sdec(2) e(rmse) nocons noobs nor2 label keep(nj) 
-			title(Table 4: Reduced-Form Models for Change in Employment)
-			ctitle("i") 
-			addtext(Controls for chain and ownership, no, Controls for region, no)
-			replace;  
+	
+	global aes "bdec(2) sdec(2) e(rmse) nocons noobs nor2 label"
+	
+	reg d_emp nj
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  replace			///
+		$aes keep(nj) 													///	
+		ctitle("i") 													///
+		title(Table 4: Reduced-Form Models for Change in Employment)	///
+		addtext(Controls for chain and ownership, no, Controls for region, no)
+	
+	reg d_emp nj $chains_owned 
+	test (kfc=roys=wendys=co_owned=0)
+	local test1=r(p) 
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",						///
+		$aes keep(nj) ctitle("ii")										///
+		addstat(Probability value for controls, `test1')				///
+		addtext(Controls for chain and ownership, yes, Controls for region, no)
 			
-	qui reg d_emp nj $chains_owned 									/* Col 2 */;
-	test (kfc=roys=wendys=co_owned=0); 
-	local test1=r(p); 
-			outreg2 using "${outputs_4_1}/tablas/tab4.xls", 
-			bdec(2) sdec(2) e(rmse) addstat(Probability value for controls, `test1')
-			addtext(Controls for chain and ownership, yes, Controls for region, no)
-			nocons noobs nor2 label keep(nj) 
-			ctitle("ii") ;  
+	reg d_emp gap
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  					///
+		$aes keep(gap) ctitle("iii")									///
+		addtext(Controls for chain and ownership, no, Controls for region, no) 
 	
-	qui reg d_emp gap 												/* Col 3 */;
-			outreg2 using "${outputs_4_1}/tablas/tab4.xls",  
-			bdec(2) sdec(2) e(rmse) nocons noobs nor2 label keep(gap)
-			addtext(Controls for chain and ownership, no, Controls for region, no)
-			ctitle("iii") ;  
+	reg d_emp gap $chains_owned 
+	test (kfc=roys=wendys=co_owned=0)
+	local test2=r(p)	
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  					///
+		$aes keep(gap) ctitle("iv")										///
+		addstat(Probability value for controls, `test2')				///
+		addtext(Controls for chain and ownership, yes, Controls for region, no)
 	
-	qui reg d_emp gap $chains_owned  								/* Col 4 */;
-	test (kfc=roys=wendys=co_owned=0); 
-	local test2=r(p); 
-			outreg2 using "${outputs_4_1}/tablas/tab4.xls",  
-			bdec(2) sdec(2) e(rmse) addstat(Probability value for controls, `test2')
-			addtext(Controls for chain and ownership, yes, Controls for region, no)
-			nocons noobs nor2 label keep(gap) 
-			ctitle("iv") ;
-	
-	qui reg d_emp gap $chains_owned $regions 						/* Col 5 */; 
-	test (kfc=roys=wendys=co_owned==southj=centralj=pa1=pa2=0); 
-	local test3 = r(p) ; 
-			outreg2 using "${outputs_4_1}/tablas/tab4.xls",   
-			bdec(2) sdec(2) e(rmse) addstat(Probability value for controls, `test3')
-			addtext(Controls for chain and ownership, yes, Controls for region, yes)
-			nocons noobs nor2 label keep(gap)
-			ctitle("v") ;
-	#delimit cr 	
+	reg d_emp gap $chains_owned $regions 
+	test (kfc=roys=wendys=co_owned==southj=centralj=pa1=pa2=0)
+	local test3 = r(p) 
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",   					///
+		$aes keep(gap) ctitle("v") 										///
+		addstat(Probability value for controls, `test3')				///
+		addtext(Controls for chain and ownership, yes, Controls for region, yes)
 		
+
 	//	------------------------------------------------------------------------	
 	// 3.3 Exportar resultados utilizando esttab
 	//	------------------------------------------------------------------------
@@ -343,12 +340,15 @@
 	
 	local regressions reg1 reg2 reg3 reg4 reg5
 	
-	esttab `regressions'						///
-		using "${outputs_4_1}/tablas/tab4.tex", ////
-		keep(nj gap)							///
-		cells("b(fmt(2))" "se(par fmt(2))")		///
-		stat(controls regions rmse test, 		///
-			labels("Controls for chain and ownership" "Controls for region" "Standard error of regression" "Probability value for controls"))	///
+	esttab `regressions'										///
+		using "${outputs_4_1}/tablas/tab4.tex", 				///
+		keep(nj gap)											///
+		cells("b(fmt(2))" "se(par fmt(2))")						///
+		stat(controls regions rmse test, 						///
+			labels("Controls for chain and ownership" 			///
+				   "Controls for region" 						///
+				   "Standard error of regression" 				///
+				   "Probability value for controls"))			///
 		label nogaps fragment nomtitle nonumbers nodep nolines	///
 		replace collabels(none)
 	

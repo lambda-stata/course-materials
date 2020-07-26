@@ -23,7 +23,7 @@
 *******************************************************************************/
 
 *** 1.0 Global settings
-	global 	fig legend(off) ///
+	global 	fig legend(off) 												///
 			mcolor(black red green)  clcolor(black red green)  				///
 			scheme(s1color) msymbol(Oh p p) xline(0) sort connect(. l l)
 			
@@ -37,7 +37,7 @@
 
 *** 1.3 Drop observaciones y collapssar data
 	drop if relativescore>=.2 | relativescore<=-.2
-	sum score bexam_grade relativescore 
+	sum score bexam_grade relativescore
 
 	collapse (mean) score bexam_grade, by(relativescore) 
 	

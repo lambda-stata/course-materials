@@ -16,7 +16,7 @@
 ********************************************************************************/
 
 *** 0.0 Install required packages:
-	local packages ietoolkit iefieldkit winsor estout outreg2 wbopendata asdoc xml_tab outwrite reghdfe ftools
+	local packages ietoolkit iefieldkit winsor estout outreg2 asdoc xml_tab outwrite reghdfe ftools
 		
 	foreach pgks in `packages' {	
 	  				
@@ -55,6 +55,7 @@
 	}
 	
 *** 0.2 Setting up folders
+
 	// Dinámicos 
 	global codes					"${project}/codes"
 	global data						"${project}/data"
@@ -91,10 +92,10 @@
 	global outputs_4_2 				"${outputs}/08-papers-3"
 	
 *** 0.3 Setting up execution 
-	global primera_semana 1
-	global segunda_semana 1
-	global tercera_semana 1
-	global cuarta_semana  1
+	global primera_semana 0
+	global segunda_semana 0
+	global tercera_semana 0
+	global cuarta_semana  0
 		
 
 ********************************************************************************

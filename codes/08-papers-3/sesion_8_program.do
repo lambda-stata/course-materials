@@ -35,28 +35,28 @@
 	gen rand = runiform()
 	gen treatment = (rand > 0.5) 
 	
-	
 *** 1.2 Ejemplos de programs
 
 	//	1.2.1 Ejemplo sencillo 1: Pikachu
 	capture program drop pikachu 
 
 	program pikachu 
-
-		display "⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿"
-		display "⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿"
-		display "⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿"
-		display "⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿"
+	
+		display as result "⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿"
+		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿"
+		
 	end 
 
 	pikachu
@@ -65,7 +65,7 @@
 	capture program drop myfecha
 	
 	program myfecha
-		display "Hoy es " c(current_date) " y son las " c(current_time)
+		display as result "Hoy es " c(current_date) " y son las " c(current_time)
 		
 	end 
 	
@@ -80,6 +80,7 @@
 		version 14
 		syntax varname
 		return local varname `varlist'
+		
 		tempvar new
 		quietly {
 			count if `varlist' != .
@@ -101,42 +102,48 @@
 		quietly summarize `varlist'
 		local mean = r(mean)
 		local sem = sqrt(r(Var)/r(N))
-		display " mean = " `mean'
-		display "SE of mean = " `sem'
+		display as result "Media = " `mean'
+		display as result "Error St. de la media = " `sem'
 		return scalar mean = `mean'
 		return scalar se = `sem'
 	end
 
-	meanse pop 
+	foreach var of varlist pop region {
+		display as result "`var'"
+		meanse `var'
+	}
 	
 	// 1.2.5 Combinando regresiones y demás 	
-	capture program drop regexample 
+	capture program drop regmultiple 
 	
-	program regexample, eclass
+	program regmultiple, eclass
 		syntax varlist, by(varname)
 		
 		marksample touse 
 		markout `touse' `by'
 		
 		foreach var of local varlist {
-		    reg `var' `by'
+		    eststo: reg `var' `by'
 		}
-		
 	end
 	
-	regexample pop, by(treatment)
-	regexample pop poplt5 pop5_17 pop18p pop65p popurban medage death marriage divorce, by(treatment)
+	eststo clear 
 	
+	regmultiple pop poplt5 pop5_17 pop18p pop65p popurban medage death marriage divorce, by(treatment)
+	
+	esttab, keep(treatment)
+	
+
 	
 	// 1.2.6 Ejemplo utilizando EClass type	
 	capture program drop tvsc
 	
 	program tvsc, eclass
-		syntax varlist [aw pw] [if] [in] , by(varname) clus_id(varname numeric) strat_id(varlist fv) [ * ]
+		syntax varlist [aw pw] [if] [in], by(varname) clus_id(varname numeric) strat_id(varlist fv) [ * ]
 
-		marksample touse
-		markout `touse' `by'
-		tempname mu_1 mu_2 mu_3 mu_4 se_1 se_2 se_3 se_4 d_p d_p2 N_C N_T S_C S_T N_S N_FE S_S S_FE
+		marksample 	touse
+		markout 	`touse' `by'
+		tempname 	mu_1 mu_2 mu_3 mu_4 se_1 se_2 se_3 se_4 d_p d_p2 N_C N_T S_C S_T N_S N_FE S_S S_FE
 		
 		capture drop TD*
 		tab `by' , gen(TD)
@@ -174,6 +181,7 @@
 			mat `d_p2'  = nullmat(`d_p2'),r(p)
 			matrix A = e(b)
 			lincom (TD1 - TD2)
+			
 			mat `mu_4' = nullmat(`mu_4'), A[1,2]-A[1,1]
 			mat `se_4' = nullmat(`se_4'), r(se)
 		}
@@ -196,9 +204,9 @@
 	
 	// Run tvsc
 	eststo clear 
-	qui tvsc pop, by(treatment) clus_id(state2) strat_id(region)
+	tvsc medage divorce marriage death, by(treatment) clus_id(state2) strat_id(region)
 	
 	// Esttab
 	esttab,						///
 		$stars 					///
-		cells("mu_2(fmt(2)) mu_1(fmt(2)) mu_3(fmt(2) ) mu_4(fmt(2))" "se_2(par) se_1(par) se_3(par) se_4(par)") 
+		cells("mu_2(fmt(2)) mu_1(fmt(2)) mu_3(fmt(2)) mu_4(fmt(2))" "se_2(par) se_1(par) se_3(par) se_4(par)") 
