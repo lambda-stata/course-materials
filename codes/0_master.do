@@ -1,9 +1,9 @@
-/********************************************************************************
+/*******************************************************************************
 * PROJECTO: 	Stata avanzado LAMBDA                           
 * TITULO: 		Master Do File
-* YEAR:			2020
+* YEAR:			2021
 * Author: 		Rony Rodríguez-Ramírez
-*********************************************************************************
+********************************************************************************
 	
 *** Outline:
 	0. Set initial configurations and globals
@@ -11,52 +11,32 @@
 	2. Segunda Semana
 	3. Tercera Semana
 
-*********************************************************************************
+********************************************************************************
 *** PART 0: Set initial configurations and globals
-********************************************************************************/
+*******************************************************************************/
 
-*** 0.0 Install required packages:
-	local packages ietoolkit iefieldkit winsor estout outreg2 asdoc xml_tab outwrite reghdfe ftools
-		
-	foreach pgks in `packages' {	
-	  				
-		capture which `pgks'
-		
-		if (_rc != 111) {
-			display as text in smcl "Paquete {it:`pgks'} está instalado "
-		}
-		
-		else {
-			display as error in smcl `"Paquete {it:`pgks'} necesita instalarse."'
-			
-			capture ssc install `pgks', replace
-			
-			if (_rc == 601) {
-				display as error in smcl `"Package `pgks' is not found at SSC;"' _newline ///
-				`"Please check if {it:`pgks'} is spelled correctly and whether `pgks' is indeed a user-written command."'
-			}
-			
-			else {
-				display as result in smcl `"Paquete `pgks' ha sido instalado."'
-			}
-		}
-	}
-	
-	ieboilstart, version(14.0)
-	
-*** 0.1 Setting up users	
+*** 0.1 Settings user's paths (Absolutos)
 	if ("`c(username)'" == "maximiliano") {
-		// Absoluto
 		global project 				"D:/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
 	}
 	
-	if ("`c(username)'" == "USERNAME") { 
-		global project 				""
+	if ("`c(username)'" == "bchai") {
+		global project				"D:/Estudiando/Stata/Stata Avanzado/course-materials-jan-2020"
+	}
+
+	if ("`c(username)'" == "Toshiba") {
+		global project 				"C:/Users/Toshiba/Documents/STATA_AVANZADO"
 	}
 	
-*** 0.2 Setting up folders
+	if ("`c(username)'" == "Gabriela") {
+		global project 				"C:/Users/Gabriela/Downloads/course-materials-jan-2020/course-materials-jan-2020"
+	}	
+ 
+	if ("`c(username)'" == "elmer") {
+		global project 				"C:/Users/elmer/Desktop/Clases de Stata/Stata Avanzado/course-materials-jan-2020"
+	}	
 
-	// Dinámicos 
+*** 0.2 Setting folder structure (Dinámicos)
 	global codes					"${project}/codes"
 	global data						"${project}/data"
 	global outputs 					"${project}/outputs"
@@ -89,15 +69,43 @@
 	global data_4_1					"${data}/07-papers-2"
 	global data_4_2					"${data}/08-papers-3"
 	global outputs_4_1				"${outputs}/07-papers-2"
-	global outputs_4_2 				"${outputs}/08-papers-3"
+	global outputs_4_2 				"${outputs}/08-papers-3"	
 	
-*** 0.3 Setting up execution 
+*** 0.3 Install required packages:
+	local packages ietoolkit iefieldkit winsor estout outreg2 asdoc xml_tab outwrite reghdfe ftools
+		
+	foreach pgks in `packages' {	
+	  				
+		capture which `pgks'
+		
+		if (_rc != 111) {
+			display as text in smcl "Paquete {it:`pgks'} está instalado "
+		}
+		
+		else {
+			display as error in smcl `"Paquete {it:`pgks'} necesita instalarse."'
+			
+			capture ssc install `pgks', replace
+			
+			if (_rc == 601) {
+				display as error in smcl `"Package `pgks' is not found at SSC;"' _newline ///
+				`"Please check if {it:`pgks'} is spelled correctly and whether `pgks' is indeed a user-written command."'
+			}
+			
+			else {
+				display as result in smcl `"Paquete `pgks' ha sido instalado."'
+			}
+		}
+	}
+	
+	ieboilstart, version(14.0)
+		
+*** 0.4 Setting up execution 
 	global primera_semana 0
 	global segunda_semana 0
 	global tercera_semana 0
 	global cuarta_semana  0
 		
-
 ********************************************************************************
 ***	PART 1: Primera Semana  
 ********************************************************************************

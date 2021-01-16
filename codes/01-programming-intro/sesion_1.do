@@ -1,4 +1,4 @@
-/********************************************************************************                     
+/********************************************************************************                
 * Título: 	Programming 101
 * Sesion: 	Sesión 1
 * Autor:	Rony Rodriguez-Ramirez
@@ -14,7 +14,7 @@
 /*	La primera sesión nos dedicamos a ver un poco sobre el master do file, como 
 	ocupar locals y globals para poder configurar nuestro lugar de trabajo. 
 	
-	Tenemos que tener en cuentra la estructura de nuestra carpeta y la forma en 
+	Tenemos que tener en cuenta la estructura de nuestra carpeta y la forma en 
 	que queremos que nuestro código se relacione con esa estructura de de las 
 	carpetas. Por ejemplo 
 	
@@ -27,7 +27,7 @@
 			- Reporte
 			- Presentacion
 			
-	Este tipo de estructure puede cambiar conforme al tipo de projecto que uno 
+	Este tipo de estructura puede cambiar conforme al tipo de projecto que uno 
 	tiene en mente. 
 
 /* 
