@@ -25,13 +25,13 @@
 	duplicates report newid 
 	
 	// Expandimos para tener duplicados 
-	expand 2 
+	expand 2
 	capture isid newid 
 
 	// Drop los duplicados 
 	duplicates report newid 
-	duplicates drop newid, force 
-	
+	duplicates drop newid, force
+		
 *********************************************************************************
 ***	PART 2: Glimpse de algunas variables
 *********************************************************************************
@@ -41,7 +41,7 @@
 	local obs = r(N)
 	
 	local demo ssex srace sbirthy sesk
-
+		
 	foreach var in `demo' {
 		tab `var'
 		if (r(N) == `obs') {
@@ -57,24 +57,31 @@
 	
 	foreach var in `ejemplo' {
 		capture assert !missing(`var')
+		
 		if _rc == 9 {
-			display "Variable `var' has missings"
+			display "variable `var' tiene valores perdidos"
 			replace `var' = 0 if missing(`var')
 		}
+		
 		else {
-			display "Variable `var' didn't have missings"
-		}		
+			display "Variable `var' no tiene valores perdidos"
+		}
+		
 	}
-	
-*** 2.2 Recoding	
+		
+*** 2.3 Recoding	
 	gen ssex2 = ssex 
 	gen ssex3 = ssex 
 	
 	local sex ssex ssex2 ssex3
-
+	
 	foreach var in `sex' {
 		capture assert `var' == 2 
 		if _rc == 9 {
 			recode `var' (2=0)
 		}
 	}
+	
+	
+	
+	

@@ -10,15 +10,16 @@
 	1. Primera Semana
 	2. Segunda Semana
 	3. Tercera Semana
+	4. Cuarta  Semana
 
 ********************************************************************************
 *** PART 0: Set initial configurations and globals
 *******************************************************************************/
 
-*** 0.1 Settings user's paths (Absolutos)
+*** 0.1 Settings user's paths
 	if ("`c(username)'" == "maximiliano") {
 		global project 				"D:/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
-	}
+	}	
 	
 	if ("`c(username)'" == "bchai") {
 		global project				"D:/Estudiando/Stata/Stata Avanzado/course-materials-jan-2020"
@@ -36,7 +37,7 @@
 		global project 				"C:/Users/elmer/Desktop/Clases de Stata/Stata Avanzado/course-materials-jan-2020"
 	}	
 
-*** 0.2 Setting folder structure (Dinámicos)
+*** 0.2 Setting folder structure
 	global codes					"${project}/codes"
 	global data						"${project}/data"
 	global outputs 					"${project}/outputs"
@@ -71,8 +72,8 @@
 	global outputs_4_1				"${outputs}/07-papers-2"
 	global outputs_4_2 				"${outputs}/08-papers-3"	
 	
-*** 0.3 Install required packages:
-	local packages ietoolkit iefieldkit winsor estout outreg2 asdoc xml_tab outwrite reghdfe ftools
+*** 0.3 Install required packages:	
+	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe 
 		
 	foreach pgks in `packages' {	
 	  				
@@ -98,7 +99,7 @@
 		}
 	}
 	
-	ieboilstart, version(14.0)
+	ieboilstart, version(15.0)
 		
 *** 0.4 Setting up execution 
 	global primera_semana 0
