@@ -120,9 +120,9 @@
 ********************************************************************************
 	if (${segunda_semana} == 1) {
 		do "${codes_2_1}/sesion_3.do"					// Crear base dummy
-		do "${codes_2_1}/sesion_3_nodup.do"				// Creat base de datos sin duplicados
-		do "${codes_2_1}/sesion_3_clean.do"				// Crear base de datos limpia	
-		do "${codes_2_1}/sesion_3_hps.do"				// Crear HPS level dataset
+		do "${codes_2_1}/sesion_3a_nodup.do"			// Crear base de datos sin duplicados
+		do "${codes_2_1}/sesion_3b_clean.do"			// Crear base de datos limpia	
+		do "${codes_2_1}/sesion_3c_hps.do"				// Crear HPS level dataset
 		do "${codes_2_2}/sesion_4_hpsc.do"				// Crear HPSC level dataset
 		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"	// Merge HPS and HPSC datasets
 	} 

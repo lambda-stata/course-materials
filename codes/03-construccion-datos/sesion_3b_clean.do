@@ -6,12 +6,12 @@
 *********************************************************************************
 	
 *** Outline:
-	1. Cleaning variables
+	2. Cleaning variables
 		2.1 Cultivated and Irrigation
 		2.2 Cultivated and Seed
 	
 *********************************************************************************
-***	PART 1: Cleaning variables
+***	PART 2: Cleaning variables
 ********************************************************************************/
 
 *** 2.0 Cargar base de datos
