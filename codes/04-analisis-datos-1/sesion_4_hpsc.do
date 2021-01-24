@@ -20,11 +20,10 @@
 *** 1.1 Cargar base de datos
 	use "${data_2_1}/agr_wide_nodup_cleaned.dta", clear 
 
-*** 1.1 Reshaping data to plot season level	
+*** 1.1 Reshaping data to plot season crop level	
 
 	// 1.1.1 Keep variables relevantes
 	keep 	hhid 		///
-			price_*		///
 			seed_kg* 	///
 			harv_kg* 	///
 			consum_kg* 	///
@@ -49,7 +48,7 @@
 	label var crop		"Crop Code"
 	
 	drop rshp_id
-	foreach var in  plot season crop {
+	foreach var in plot season crop {
 		destring `var', replace
 	}
 	
@@ -58,4 +57,7 @@
 	
 	// 1.1.6 Save 
 	save "${data_2_1}/agr_hpsc.dta", replace
+	
+	
+	
 

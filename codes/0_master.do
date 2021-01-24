@@ -102,8 +102,8 @@
 	ieboilstart, version(15.0)
 		
 *** 0.4 Setting up execution 
-	global primera_semana 0
-	global segunda_semana 0
+	global primera_semana 1
+	global segunda_semana 1
 	global tercera_semana 0
 	global cuarta_semana  0
 		
@@ -124,6 +124,7 @@
 		do "${codes_2_1}/sesion_3b_clean.do"			// Crear base de datos limpia	
 		do "${codes_2_1}/sesion_3c_hps.do"				// Crear HPS level dataset
 		do "${codes_2_2}/sesion_4_hpsc.do"				// Crear HPSC level dataset
+		do "${codes_2_2}/sesion_4_hc_prices.do"			// Crear HC level dataset (prices)
 		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"	// Merge HPS and HPSC datasets
 	} 
 
