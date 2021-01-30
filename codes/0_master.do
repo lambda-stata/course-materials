@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 *** 0.1 Settings user's paths
-	if ("`c(username)'" == "maximiliano") {
+	if ("`c(username)'" == "Maximiliano") {
 		global project 				"D:/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
 	}	
 	

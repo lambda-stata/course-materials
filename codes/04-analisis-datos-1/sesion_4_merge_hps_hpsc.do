@@ -63,6 +63,13 @@
 *** 1.4 Order and keep
 	order hhid plot season crop treatment village 
 	
+	
+*** 1.5 Merge with prices
+	merge m:1 hhid crop using "${data_2_1}/agr_hc_price.dta",		///
+		assert(3)
+	drop _merge
+	
+	
 *** 1.5 Guardar base de datos
 	save "${data_2_2}/agr_merge_hps_hpsc.dta", replace
 	

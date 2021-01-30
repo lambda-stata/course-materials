@@ -8,7 +8,8 @@
 *** Outline:
 	1. 	Reshaping variables
 		1.1 Cargar base de datos
-		1.1 Reshaping data to plot season level		
+		1.2 Income variables.
+		1.3 Save
 	
 	Input: 	agr_merge_hps_hpsc
 	Output: agr_merge_hps_hpsc_constructed
@@ -30,9 +31,7 @@
 	*/ 
 	
 	// El primer income es el que utilizaremos para nuestras tablas
-	
-	bys hhid plot season: gen income = sell_kg * price_1 if crop == 1 	
-	replace income = sell_kg * price_2 if crop == 2
+	bys hhid plot season: gen income = sell_kg * price
 	replace income = . if sell_kg == 0
 	
 	/* Otros ejemplos de income (sus niveles de observación son diferentes)
@@ -50,8 +49,6 @@
 	
 	label var income "Ingreso por plot season crop"
 	
-	drop price_1 price_2
-	
-	// 1.1.6 Save 
+	// 1.3 Save 
 	save "${data_3_1}/agr_merge_hps_hpsc_constructed.dta", replace
 

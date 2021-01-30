@@ -58,7 +58,7 @@
 \subsection{Introducción}
 %-----------------------------------------------
 \begin{frame}[t]{Inputs}
-	\textbf{Constructed dataset:}
+	\textbf{Constructed dataset (base de datos construída):}
 	\begin{itemize}
 		\item Incluir solo las variables necesarias para el análisis
 		\item Libro de códigos de acompañamiento con descripción y definición de variables.
@@ -81,14 +81,14 @@
 \begin{frame}[t]{Outputs}
 	\begin{itemize}
 		\item Los resultados finales, como documentos, informes breves e incluso creados para analizar los resultados, deben actualizarse automáticamente cuando se actualizan los resultados sin procesar.
-		\item \LaTeX es una herramienta extremadamente útil para hacer esto.
-		\item Si no sabe cómo usarlo, consulte nuestra capacitación en \LaTeX de DIME.
+		\item \LaTeX~es una herramienta extremadamente útil para hacer esto.
+		\item Si no sabe cómo usarlo, consulte nuestra capacitación en \LaTeX de DIME. \href{https://github.com/worldbank/DIME-LaTeX-Templates}{https://github.com/worldbank/DIME-LaTeX-Templates}
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Documentación}
+\begin{frame}[t]{Documentación}
 	\begin{itemize}
-		\item Otro resultado importante del análisis es un mapa de cómo se crearon los resultados
+		\item Otro resultado importante del análisis es un mapa de cómo se crearon los resultados.
 		\item El script maestro (master do file) es la mejor manera de hacer esto: debe hacer un seguimiento de lo que son las entradas y salidas de cada script que ejecuta.
 		\item Un archivo README también es una buena forma de hacerlo, especialmente cuando se usan idiomas de programación y software específicos.
 	\end{itemize}
@@ -98,7 +98,7 @@
 %-----------------------------------------------
 \subsection{Análisis}
 %-----------------------------------------------
-\begin{frame}{El proceso de Análisis}
+\begin{frame}[t]{El proceso de Análisis}
 	\begin{itemize}[<+->]
 		\item El análisis de datos se puede dividir en dos etapas.
 		\item Durante el análisis \textbf{exploratorio de datos}, el equipo de investigación generalmente buscará patrones en los datos, de manera más descriptiva.
@@ -107,7 +107,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}{Trabajo de datos durante el análisis}
+\begin{frame}[t]{Trabajo de datos durante el análisis}
 	\begin{itemize}[<+->]
 		\item La forma en que maneja el código y los resultados para el análisis exploratorio y final es diferente.
 		\item Durante el análisis exploratorio de datos, estará tentado a escribir muchos análisis en un gran script, o incluso directamente en la consola.
@@ -116,7 +116,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Documentos dinámicos durante el análisis exploratorio}
 	\begin{itemize}
 		\item Una forma de evitar caer en malas prácticas durante el análisis exploratorio de datos es crear documentos dinámicos
@@ -127,7 +127,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Documentos dinámicos durante el análisis final}
 	\begin{itemize}
 		\item Dadas las limitaciones de crear documentos dinámicos en software estadístico, el equipo tiende a preferir pasar al editor de texto o a los sistemas de preparación de documentos para escribir los resultados finales de la investigación.
@@ -135,7 +135,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Documentos dinámicos durante el análisis final}
 	\begin{itemize}
 		\item El código generalmente sigue evolucionando a medida que se redactan los documentos e informes, y es importante mantener los resultados del código actualizados en los documentos finales
@@ -148,7 +148,7 @@
 %-----------------------------------------------
 \subsection{Un workflow automatizado}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Exportando outputs}
 	\begin{itemize}
 		\item Está bien no exportar todas y cada una de las tablas y gráficos creados durante el análisis exploratorio.
@@ -158,7 +158,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Automatizando outputs}
 	\begin{itemize}
 		\item Las ediciones manuales son difíciles de replicar e inevitablemente necesitará realizar cambios en los resultados.
@@ -179,7 +179,7 @@
 	\end{center}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Automatizando outputs}
 	\begin{itemize}[<+->]
 		\item Copiar resultados de Excel a Word es propenso a errores e ineficiente.
@@ -191,7 +191,7 @@
 	\end{itemize}	
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Automatizando outputs}
 	\begin{itemize}
 		\item \texttt{estout} puede resovler la mayoría de los problemas. 
@@ -200,7 +200,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Automatizando outputs}
 	
 	Puede encontrar más ejemplo en los siguientes repositorios: 
@@ -210,7 +210,7 @@
 	\end{enumerate}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Automatizando outputs}
 	\begin{itemize}
 		\item También puede editar el conjunto de datos directamente y exportar los datos a Excel con exportación de Excel, a csv con exportación delimitada o a \LaTeX con salida de datos
@@ -222,7 +222,7 @@
 \section{Escribiendo scripts de análisis}
 \subsection{Escribiendo scripts de análisis}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Organización del script (do file)}
 	Un scripts (do file) muy bien ordenado:
 	\begin{itemize}[<+->]
@@ -236,7 +236,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Organización del script (do file)}
 	\begin{itemize}[<+->]
 		\item El código de análisis debe ser limpio y simple: incluso puede crear un script para cada salida
@@ -245,7 +245,7 @@
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{Organización del script (do file)}
 	\begin{itemize}[<+->]
 		\item Cuando su equipo toma decisiones sobre la especificación del modelo, puede crear globales u objetos en la secuencia de comandos maestra para usar en las secuencias de comandos.
@@ -258,7 +258,7 @@
 \section{Outputs finales}
 \subsection{Outputs finales}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{¡Mira tu outputs!}
 	\begin{itemize}
 		\item ¿El aspecto es decente?
@@ -282,7 +282,7 @@
 	\end{center}
 \end{frame}
 %-----------------------------------------------
-\begin{frame}
+\begin{frame}[t]
 	\frametitle{¿Ahora qué?}
 
 	\begin{itemize}[<+->]
