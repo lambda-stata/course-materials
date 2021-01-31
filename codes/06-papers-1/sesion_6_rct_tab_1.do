@@ -40,11 +40,11 @@
 		matrix m1[2, 3] = `r(N)'
 		matrix m1[4, 3] = round(`r(mean)', .001)	// Percent (Row 3)
 		
-		matrix m1[2,4] = m1[2,2] - m1[2,3]
-		matrix m1[2,5] = m1[2,2] + m1[2,3]
+		matrix m1[2,4] = m1[2,2] - m1[2,3]			// Difference 	(Col 3) 
+		matrix m1[2,5] = m1[2,2] + m1[2,3]			// Total		(Col 4)
 		 
 		
-		// Sprin 2008 Survey (Row 1 - Col 5/9)
+		// Spring 2008 Survey (Row 1 - Col 5/9)
 		sum s08_hh_observed if s08_hh_covered == 1 & treatment == 1
 		matrix m1[2, 6] = `r(N)'
 		matrix m1[4, 6] = round(`r(mean)', .001) 	// Percent (Row 3)
@@ -53,8 +53,8 @@
 		matrix m1[2, 7] = `r(N)'
 		matrix m1[4, 7] = round(`r(mean)', .001) 	// Percent (Row 3)
 		
-		matrix m1[2,8] = m1[2,6] - m1[2,7]
-		matrix m1[2,9] = m1[2,6] + m1[2,7]	
+		matrix m1[2,8] = m1[2,6] - m1[2,7]			// Difference 	(Col 7)
+		matrix m1[2,9] = m1[2,6] + m1[2,7]			// Total 		(Col 8)
 		
 	// Surveyed
 		// Fall 2007 Survey (Row 2 - Col 1 / 4)
@@ -79,16 +79,17 @@
 		
 	//	Percent of households surveyed (Col 3 and 4)
 		reg f07_hh_observed treatment if f07_hh_covered == 1, cluster(clustercode)
-		matrix m1[4,4] = round(_b[treatment], .001)
-		matrix m1[5,4] = round(_se[treatment], .001)
+		
+		matrix m1[4,4] = round(_b[treatment], 	.001)
+		matrix m1[5,4] = round(_se[treatment], 	.001)
 			
 		sum f07_hh_observed if f07_hh_covered == 1
 		matrix m1[4,5] = round(`r(mean)', .001) 	// Percent (row 3)
 		
-	//	Percent of households surveyed (Col 8 and 9)	
+	//	Percent of households surveyed (Col 8 and 9)		
 		reg s08_hh_observed treatment if s08_hh_covered == 1, cluster(clustercode)
-		matrix m1[4,8] = round(_b[treatment], .001)
-		matrix m1[5,8] = round(_se[treatment], .001)
+		matrix m1[4,8] = round(_b[treatment], 	.001)
+		matrix m1[5,8] = round(_se[treatment], 	.001)
 		
 		sum s08_hh_observed if s08_hh_covered == 1
 		matrix m1[4,9] = round(`r(mean)', .001) 	// Percent (row 3)
@@ -114,8 +115,8 @@
 		matrix m1[8,3] = round(`r(mean)', .001)
 		
 		reg f07_with_kids treatment if f07_hh_observed == 1, cluster(clustercode)
-		matrix m1[8,4] = round(_b[treatment], .001)
-		matrix m1[9,4] = round(_se[treatment], .001)
+		matrix m1[8,4] = round(_b[treatment], 	.001)
+		matrix m1[9,4] = round(_se[treatment], 	.001)
 		
 		sum f07_with_kids if f07_hh_observed == 1
 		matrix m1[8,5] = round(`r(mean)', .001) 	
@@ -138,8 +139,8 @@
 		matrix m1[8,7] = round(`r(mean)', .001)
 		
 		reg s08_with_kids treatment if s08_hh_observed == 1, cluster(clustercode)
-		matrix m1[8,8] = round(_b[treatment], .001)
-		matrix m1[9,8] = round(_se[treatment], .001)
+		matrix m1[8,8] = round(_b[treatment], 	.001)
+		matrix m1[9,8] = round(_se[treatment], 	.001)
 		
 		sum s08_with_kids if s08_hh_observed == 1
 		matrix m1[8,9] = round(`r(mean)', .001) 	
@@ -162,6 +163,8 @@
 	replace c1 = "Panel B. Households with eligible children" if _n == 6
 	replace c1 = "Households with children" 	if _n == 7
 	replace c1 = "Percentage with children" 	if _n == 8
+	replace c1 = ""								if _n == 9 
+	
 	
 *** Outsheet
 	outsheet using "${outputs_3_2}/tablas/tab_1.csv", comma nonames noquote nolabel replace

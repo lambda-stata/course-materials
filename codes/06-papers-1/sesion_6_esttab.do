@@ -20,7 +20,6 @@
 
 ***	1.1 Load the data	
 	sysuse census.dta, clear
-	xtset region
 
 ***	1.2 Correr regresiones
 	estimates clear 
@@ -30,7 +29,7 @@
 	
 	est sto reg1
 	estadd local region	"No"
-
+	
 	// Regression 2: a different regression
 	reg death popurban
 	
@@ -44,8 +43,8 @@
 	estadd local region "No"
 
 	// Regression 4: categorical control
-	reg 	divorce marriage pop i.region
-	
+	reg divorce marriage pop i.region
+
 	est sto reg4
 	estadd local region "Si"
 	
@@ -99,21 +98,19 @@
 	* La opción 'keep' haría lo contrario, manteniendo solo las variables enumeradas.
 	* La opción 'order' le permite especificar el orden o las filas.
 	*---------------------------------------------------------------------------
-	
 	esttab `regressions' using "${outputs_3_2}/tablas/t4_esttab_scalar.csv", 	///
 		drop(*.region*)															///	Remueve variables dentro de los ()														
 		scalars("region Region FE")  											/// Agrega una nueva fila que indica donde están los efectos fijos
 		addnotes("Add a note here." "Other custom note here.")  				/// Cada nota se agregará en una nueva linea
 		label 																	///
 		replace	
-		
-	
+			
 	*---------------------------------------------------------------------------
 	* Add custom model titles and table notes
 	*---------------------------------------------------------------------------
 	esttab `regressions' using "${outputs_3_2}/tablas/t5_esttab_titles.csv", 	///
-		mtitles("Title 1" "Title 2" "Title 3" "Title 4") 						/// Muestra títlos de las columnas
-		b(3) se(3)																/// Display standard errors en vez de of t-statistics 
+		mtitles("Title 1" "Title 2" "Title 3" "Title 4") 						/// Muestra títulos de las columnas
+		b(2) se(2)																/// Display standard errors en vez de of t-statistics 
 		drop(*.region*) 														///																
 		scalars("region Region controls") 										/// 
 		obslast label nocons nogaps nonotes 									///
