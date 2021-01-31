@@ -73,7 +73,7 @@
 	global outputs_4_2 				"${outputs}/08-papers-3"	
 	
 *** 0.3 Install required packages:	
-	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe 
+	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe xml_tab outwrite
 		
 	foreach pgks in `packages' {	
 	  				
@@ -102,8 +102,8 @@
 	ieboilstart, version(15.0)
 		
 *** 0.4 Setting up execution 
-	global primera_semana 1
-	global segunda_semana 1
+	global primera_semana 0
+	global segunda_semana 0
 	global tercera_semana 0
 	global cuarta_semana  0
 		

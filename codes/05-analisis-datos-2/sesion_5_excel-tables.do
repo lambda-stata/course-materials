@@ -47,13 +47,12 @@
 		est sto reg4
 
 *** 1.3 Exportar tables: Excel
-
 	global regressions reg1 reg2 reg3 reg4
 
 	// outreg2
 	outreg2 [${regressions}] 							///
 		using "${outputs_3_1}/tablas/outreg.xls" 		///
-		, replace excel
+		, replace excel label
 	
 	// estout
 	estout ${regressions} 								///
@@ -69,4 +68,8 @@
 	outwrite ${regressions} 							///
 		using "${outputs_3_1}/tablas/outwrite.xlsx" 	///
 		, replace
+	
+	
+	
+	
 	

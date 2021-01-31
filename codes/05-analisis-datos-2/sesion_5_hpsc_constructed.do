@@ -21,18 +21,21 @@
 *** 1.1 Cargar base de datos
 	use "${data_2_2}/agr_merge_hps_hpsc.dta", clear 
 
-*** 1.2 Income variables: ¿Cuál sería el merge enfoque para hacer la variable ingreso? 
+*** 1.2 Income variables: ¿Cuál sería el mejor enfoque para hacer la variable ingreso? 
 
 	/* Nota: 
-	Variable ingreso es construída a nivel de HH Plot Season, y es la multiplicación 
-	de venta y el precio que es constante por cada crop
+	Variable ingreso es construída a nivel de HH Plot Season, y es 
+	la multiplicación de venta y el precio que es constante por 
+	cada crop (cultivo)
 	
-	Hemos mandado a missing los ingresos cuando no hubo venta (o intención de venta).
+	Hemos mandado a missing los ingresos cuando no hubo venta 
+(o intención de venta).
 	*/ 
 	
-	// El primer income es el que utilizaremos para nuestras tablas
+	// El primer income es el que utilizaremos para nuestras tablas	
 	bys hhid plot season: gen income = sell_kg * price
-	replace income = . if sell_kg == 0
+	replace 	income = . if sell_kg == 0
+	label var 	income "Ingreso por plot season crop"
 	
 	/* Otros ejemplos de income (sus niveles de observación son diferentes)
 	bys hhid plot season: egen income_total = total(income)
@@ -46,8 +49,6 @@
 	
 	merge 1:m hhid using `dataset', keepusing(treatment village)
 	*/
-	
-	label var income "Ingreso por plot season crop"
 	
 	// 1.3 Save 
 	save "${data_3_1}/agr_merge_hps_hpsc_constructed.dta", replace

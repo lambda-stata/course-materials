@@ -11,7 +11,7 @@
 		1.2 Tablas 
 		
 	Input: 	agr_merge_hps_hpsc_constructed
-	Output: tablas
+	Output: balance_tables.xlsx
 	
 *********************************************************************************
 ***	PART 1: Analisis
@@ -20,33 +20,30 @@
 *** 1.1 Cargar base de datos
 	use "${data_3_1}/agr_merge_hps_hpsc_constructed.dta", clear 
 
-	
 *** 1.2 Tablas
-	preserve 
-		local 	vars		///
-				cult 		///
-				irr 		///
-				seed_kg 	///
-				harv_kg 	///
-				consum_kg	///
-				sell_kg
-		
-		iebaltab `vars', 			///
-			grpvar(treatment)		///
-			vce(cluster village)	///
-			rowvarlabels 			///
-			save("${outputs_3_1}/tablas/balance_tables.xlsx") replace
+	local 	vars		///
+			cult 		///
+			irr 		///
+			seed_kg 	///
+			harv_kg 	///
+			consum_kg	///
+			sell_kg		///
+			income
 	
-	restore 
+	iebaltab `vars', 			///
+		grpvar(treatment)		///
+		vce(cluster village)	///
+		rowvarlabels 			///
+		save("${outputs_3_1}/tablas/balance_tables.xlsx") replace
+
+
+	iebaltab `vars', 			///
+		grpvar(treatment)		///
+		vce(cluster village)	///
+		rowvarlabels 			///
+		savetex("${outputs_3_1}/tablas/balance_tables.tex")	replace 
 	
-	preserve 
-		iebaltab `vars', 			///
-			grpvar(treatment)		///
-			vce(cluster village)	///
-			rowvarlabels 			///
-			savetex("${outputs_3_1}/tablas/balance_tables.tex")	replace 
 	
-	restore 
 	
 	
 	
