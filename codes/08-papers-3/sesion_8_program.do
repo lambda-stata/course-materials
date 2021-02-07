@@ -29,7 +29,7 @@
 ***	1.1 Load the data	
 	sysuse census.dta, clear 
 	
-	// 1.1.1 Generar variable treatment para uso en los ejemplos
+	// 1.1.1 Generar variable treatment (tratamiento) para uso en los ejemplos
 	set seed 19950124
 	
 	gen rand = runiform()
@@ -38,6 +38,7 @@
 *** 1.2 Ejemplos de programs
 
 	//	1.2.1 Ejemplo sencillo 1: Pikachu
+	
 	capture program drop pikachu 
 
 	program pikachu 
@@ -66,14 +67,12 @@
 	
 	program myfecha
 		display as result "Hoy es " c(current_date) " y son las " c(current_time)
-		
 	end 
 	
 	myfecha
 	
-	// 1.2.3 Ejemplo utilizando RClass type
-	
-	// My sum
+	// 1.2.3 Ejemplo utilizando RClass type	
+	// My sum	
 	capture program drop mysum 
 	
 	program define mysum, rclass
@@ -92,10 +91,13 @@
 	end	
 	
 	mysum pop
+	ret list 
 		
 	// 1.2.4 Mean SE
 	capture program drop meanse
 	program meanse, rclass
+		version 14
+		
 		syntax varname 
 		return local varname `varlist'
 		
@@ -128,13 +130,11 @@
 	end
 	
 	eststo clear 
-	
 	regmultiple pop poplt5 pop5_17 pop18p pop65p popurban medage death marriage divorce, by(treatment)
 	
 	esttab, keep(treatment)
 	
 
-	
 	// 1.2.6 Ejemplo utilizando EClass type	
 	capture program drop tvsc
 	

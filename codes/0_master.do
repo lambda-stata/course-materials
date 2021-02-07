@@ -21,22 +21,6 @@
 		global project 				"D:/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
 	}	
 	
-	if ("`c(username)'" == "bchai") {
-		global project				"D:/Estudiando/Stata/Stata Avanzado/course-materials-jan-2020"
-	}
-
-	if ("`c(username)'" == "Toshiba") {
-		global project 				"C:/Users/Toshiba/Documents/STATA_AVANZADO"
-	}
-	
-	if ("`c(username)'" == "Gabriela") {
-		global project 				"C:/Users/Gabriela/Downloads/course-materials-jan-2020/course-materials-jan-2020"
-	}	
- 
-	if ("`c(username)'" == "elmer") {
-		global project 				"C:/Users/elmer/Desktop/Clases de Stata/Stata Avanzado/course-materials-jan-2020"
-	}	
-
 *** 0.2 Setting folder structure
 	global codes					"${project}/codes"
 	global data						"${project}/data"
