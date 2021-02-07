@@ -78,14 +78,14 @@
 	//	------------------------------------------------------------------------
 	//	2.1.1 Distribution of Store Type (percentages)
 	//	------------------------------------------------------------------------
-	eststo clear 
+	eststo clear 	
 	estpost ttest $tab2_1, by(pa) uneq 
 	
 	//	Excel
 	esttab using "${outputs_4_1}/tablas/tab2_1.csv", 	///
 		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
 		wide nonumber noobs nomtitle label replace
-		
+				
 	// 	Latex
 	esttab using "${outputs_4_1}/tablas/tab2_1.tex", 	///
 		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
@@ -106,11 +106,11 @@
 	//	Latex
 	matrix m1 = J(8,4,.)
 	matrix list m1 
-
-	local i = 1 
+		
+	local i = 1
 	local j = 2
 	foreach var in $tab2_2 {
-		ttest `var', by(pa) uneq
+		qui ttest `var', by(pa) uneq
 		
 		matrix m1[`i',2] = round(`r(mu_1)', .01)
 		matrix m1[`i',3] = round(`r(mu_2)', .01)
@@ -130,7 +130,7 @@
 		svmat m1, names(col) 
 		
 		tostring *, format("%2.1f") replace force
-		
+			
 		foreach var of varlist c2 c3 {
 			forvalues x = 2(2)8 {
 				replace `var' = "(" + `var' + ")" if _n == `x' 
@@ -149,19 +149,16 @@
 		// Excel
 		outsheet using "${outputs_4_1}/tablas/tab2_2.csv", 		////
 				 comma nonames noquote nolabel replace		
-				
+		
 		replace c`c(k)' =  c`c(k)' + "\\"
-		replace c`c(k)' =  "" + "\\" if c`c(k)' == ".\\"
 	
 		foreach col of varlist c1-c3 {
-			replace `col' = "" if `col' == "."
 			replace `col' = `col' + "&"
 		}
-
+	
 		// Export to TeX
 		outsheet using "${outputs_4_1}/tablas/tab2_2.tex", 		////
 				 nonames noquote nolabel replace
-		
 	restore 
 	
 	//	------------------------------------------------------------------------
@@ -197,7 +194,8 @@
 
 	matrix list m1
 	
-	preserve
+	snapshot erase _all
+	snapshot save, label("Matrix para exportar")	
 		clear
 		svmat m1, names(col) 
 		
@@ -227,10 +225,13 @@
 		// Exrpot to TeX
 		outsheet using "${outputs_4_1}/tablas/tab2_3.tex", 		////
 				 nonames noquote nolabel replace	
-	restore
+	
+	snapshot save, label("Formato completo ya exportado")
+	snapshot restore 1
+	
 	
 ********************************************************************************
-***	PART 3: TABLA 3
+***	PART 3: TABLA 4
 ********************************************************************************		
 
 	//	------------------------------------------------------------------------
@@ -243,15 +244,15 @@
 	replace gap 	= 0 if pa==1
 	replace gap 	= 0 if wage_st>=5.05
 
-	// Drop vars con missings y que no estuvieron cerradas
+	// Drop vars con missings y que no estuvieron cerradas	
 	drop if missing(wage_st)	& closed!=1
 	drop if missing(wage_st2) 	& closed!=1
 	drop if missing(d_emp) 		& closed!=1
 	
 	// Componer labels
-	label var gap "Intitial wage gap"
-	label var nj "New Jersey dummy"
-	label var gap "Initial wage gap" 
+	label var gap 		"Intitial wage gap"
+	label var nj 		"New Jersey dummy"
+	label var gap 		"Initial wage gap" 
 
 	global chains_owned "kfc roys wendys co_owned"
 	global regions 		"southj centralj pa1 pa2"
@@ -268,7 +269,6 @@
 		ctitle("i") 													///
 		title(Table 4: Reduced-Form Models for Change in Employment)	///
 		addtext(Controls for chain and ownership, no, Controls for region, no)
-	
 	reg d_emp nj $chains_owned 
 	test (kfc=roys=wendys=co_owned=0)
 	local test1=r(p) 
@@ -338,6 +338,7 @@
 		test (kfc=roys=wendys=co_owned==southj=centralj=pa1=pa2=0)
 		estadd scalar test = r(p) 
 	
+	// Exportar
 	local regressions reg1 reg2 reg3 reg4 reg5
 	
 	esttab `regressions'										///
@@ -351,8 +352,6 @@
 				   "Probability value for controls"))			///
 		label nogaps fragment nomtitle nonumbers nodep nolines	///
 		replace collabels(none)
-	
-
 	
 	
 	

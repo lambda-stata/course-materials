@@ -1,6 +1,6 @@
 %\input{tcilatex}
 \documentclass{article}
-\usepackage[flushleft]{threeparttable}						
+\usepackage[flushleft]{threeparttable}
 %\usepackage[nolists,heads]{endfloat}
 \usepackage{pdflscape}
 \usepackage{amssymb}
@@ -42,7 +42,7 @@
 \usepackage{booktabs}
 \usepackage{lipsum}
 \usepackage{geometry}
-	
+
 %font
 \usepackage[sc]{mathpazo}
 
@@ -76,7 +76,7 @@
 \newtheorem{solution}{Solution}
 \newtheorem{assumption}{Assumption}
 
-% new environment for landscape tables    
+% new environment for landscape tables
 \newenvironment{ltable}{\begin{landscape}\begin{table}}{\end{table}\end{landscape}}
 \newenvironment{ltablelong}{\begin{landscape}\begin{longtable}}{\end{longtable}\end{landscape}}
 
@@ -99,11 +99,11 @@
 \usepackage{url}
 \urlstyle{rm}
 \definecolor{darkblue}{rgb}{0,0,.4}
-\hypersetup{colorlinks=true, 
-			breaklinks=true, 
-			citecolor=darkblue, 
-			linkcolor=darkblue, 
-			menucolor=darkblue, 
+\hypersetup{colorlinks=true,
+			breaklinks=true,
+			citecolor=darkblue,
+			linkcolor=darkblue,
+			menucolor=darkblue,
 			urlcolor=darkblue}
 
 % Tables new command
@@ -112,22 +112,22 @@ Return to \nameref{sec:updates}.%
 }
 
 %-----------------------------------------------------------------
-% BEGIN 
+% BEGIN
 %-----------------------------------------------------------------
 \begin{document}
 %-----------------------------------------------------------------
-\title{Sesión 7: Exportación de Tablas \\ Card and Krueger (1994)} 
+\title{Sesión 7: Exportación de Tablas \\ Card and Krueger (1994)}
 \author{Rony Rodriguez-Ramirez}
 \maketitle
 %-----------------------------------------------------------------
 % Sección: Tablas
 %-----------------------------------------------------------------
-\newpage 
+\newpage
 \section{Tablas}
 %-----------------------------------------------------------------
 % Tabla 2
 %-----------------------------------------------------------------
-\setcounter{table}{1} 
+\setcounter{table}{1}
 
 \begin{table}[H]
 	\centering
@@ -136,19 +136,19 @@ Return to \nameref{sec:updates}.%
 			\caption{Mean of Key Variables}
 			\begin{tabular}{@{}l*{3}{c}@{}}
                 \toprule
-				& \multicolumn{2}{c}{Stores in:} & 								\\ \cmidrule(lr){2-3}
-				Variable & NJ & PA & $tâ$										\\
+							& \multicolumn{2}{c}{Stores in:} & 						\\ \cmidrule(lr){2-3}
+				Variable 	& NJ & PA & $tâ$										\\
 				\midrule
 				1. \textit{Distribution of Store Types (percentages):} 	& & & 	\\
-				\input{tablas/tab2_1.tex}														
-																		& & & 	\\		
-				2. \textit{Means in Wave 2:}							& & & 	\\			
-																		& & & 	\\	
-				\input{tablas/tab2_2.tex}				
-																		& & &	\\														
+				\primitiveinput{tablas/tab2_1.tex}
+																		& & & 	\\
+				2. \textit{Means in Wave 2:}							& & & 	\\
+																		& & & 	\\
+				\primitiveinput{tablas/tab2_2.tex}
+																		& & &	\\
 				3. \textit{Means in Wave 2:}							& & & 	\\
-																		& & & 	\\			
-				\input{tablas/tab2_3.tex}                		
+																		& & & 	\\
+				\primitiveinput{tablas/tab2_3.tex}
 				\bottomrule
 			\end{tabular}
 			\begin{tablenotes}
@@ -162,7 +162,7 @@ Return to \nameref{sec:updates}.%
 %-----------------------------------------------------------------
 % Tabla 4
 %-----------------------------------------------------------------
-\setcounter{table}{3} 
+\setcounter{table}{3}
 
 \begin{table}[H]
 	\centering
@@ -173,15 +173,15 @@ Return to \nameref{sec:updates}.%
 				\toprule
 				& \multicolumn{5}{c}{Model}								\\ \cmidrule(l){2-6}
 				Indendent variable & (i) & (ii) & (iii) & (iv) & (v) 	\\ \midrule
-				\input{tablas/tab4.tex}
+				\primitiveinput{tablas/tab4.tex}
 				\bottomrule
 			\end{tabular}
 			\begin{tablenotes}
 				\setlength\labelsep{0pt}
 				\footnotesize
-				\item \textit{Notes}: Standard errors are given in parentheses. 
-				The sample consists of 357 stores with available data on employment and starting wages in waves 1 and 2. 
-				The dependent variable in all models is change in FTE employment. The mean and standard deviation of 
+				\item \textit{Notes}: Standard errors are given in parentheses.
+				The sample consists of 357 stores with available data on employment and starting wages in waves 1 and 2.
+				The dependent variable in all models is change in FTE employment. The mean and standard deviation of
 				the dependent variable are -0.237 and 8.825, respectively. All models include a n unrestricted constant (not reported).
 				\item ~~~$^{a}$Proportional increase in starting wage necessary to raise starting wage to new minimum rate. For stores in Pennsylvania the wage gap is 0
 				\item ~~~$^{b}$Three dummy variables for chain type and whether or not the store is company owned are included.

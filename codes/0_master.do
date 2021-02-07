@@ -105,7 +105,7 @@
 	global primera_semana 1
 	global segunda_semana 1
 	global tercera_semana 1
-	global cuarta_semana  0
+	global cuarta_semana  1
 		
 ********************************************************************************
 ***	PART 1: Primera Semana  
