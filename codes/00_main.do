@@ -1,7 +1,7 @@
 /*******************************************************************************
 * PROJECTO: 	Stata avanzado LAMBDA                           
 * TITULO: 		Master Do File
-* YEAR:			2021
+* YEAR:			  2021
 * Author: 		Rony Rodríguez-Ramírez
 ********************************************************************************
 	
@@ -17,50 +17,35 @@
 *******************************************************************************/
 
 *** 0.1 Settings user's paths
-	if ("`c(username)'" == "Maximiliano") {
-		global project 				"D:/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
-	}	
-	
+  // Usuario: Rony
+	if ("`c(username)'" == "ifyou") {
+		global project      "C:/Users/ifyou/Documents/RA Jobs/LAMBDA/Stata Avanzado/course-materials"
+	}
+  
+  // Otro usuario: 
+  if ("`c(username)'" == "") {
+    global project      ""
+  }
+  
 *** 0.2 Setting folder structure
 	global codes					"${project}/codes"
 	global data						"${project}/data"
-	global outputs 					"${project}/outputs"
+	global outputs 				"${project}/outputs"
 	
-	// Semana 1
-	global codes_1_1				"${codes}/01-programming-intro"
-	global codes_1_2				"${codes}/02-manejo-limpieza-datos"
-	global data_1_1					"${data}/01-programming-intro"
-	global data_1_2					"${data}/02-manejo-limpieza-datos"
-	
-	// Semana 2
-	global codes_2_1				"${codes}/03-construccion-datos"
-	global codes_2_2				"${codes}/04-analisis-datos-1"
-	global data_2_1					"${data}/03-construccion-datos"
-	global data_2_2					"${data}/04-analisis-datos-1"	
-	global outputs_2_1				"${outputs}/03-construccion-datos"
-	global outputs_2_2				"${outputs}/04-analisis-datos-1"
-	
-	// Semana 3
-	global codes_3_1				"${codes}/05-analisis-datos-2"
-	global codes_3_2				"${codes}/06-papers-1"
-	global data_3_1					"${data}/05-analisis-datos-2"
-	global data_3_2					"${data}/06-papers-1"
-	global outputs_3_1				"${outputs}/05-analisis-datos-2"
-	global outputs_3_2				"${outputs}/06-papers-1"
+	// Semana 1 - Día 1  
+	global codes_1_1			"${codes}/01-programming-intro"
+  global data_1_1				"${data}/01-programming-intro"
+  
+  // Semana 1 - Día 2 
+	global codes_1_2			"${codes}/02-manejo-limpieza-datos"
+	global data_1_2				"${data}/02-manejo-limpieza-datos"
+  
+*** 0.3 Install required packages:  
+  
+	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe  
 
-	// Semana 4 
-	global codes_4_1				"${codes}/07-papers-2"
-	global codes_4_2				"${codes}/08-papers-3"
-	global data_4_1					"${data}/07-papers-2"
-	global data_4_2					"${data}/08-papers-3"
-	global outputs_4_1				"${outputs}/07-papers-2"
-	global outputs_4_2 				"${outputs}/08-papers-3"	
-	
-*** 0.3 Install required packages:	
-	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe xml_tab outwrite
-		
 	foreach pgks in `packages' {	
-	  				
+
 		capture which `pgks'
 		
 		if (_rc != 111) {
@@ -87,9 +72,9 @@
 		
 *** 0.4 Setting up execution 
 	global primera_semana 1
-	global segunda_semana 1
-	global tercera_semana 1
-	global cuarta_semana  1
+  global segunda_semana 0
+  global tercera_semana 0
+  global cuarta_semana  0
 		
 ********************************************************************************
 ***	PART 1: Primera Semana  
@@ -103,12 +88,12 @@
 ***	PART 2: Segunda Semana  
 ********************************************************************************
 	if (${segunda_semana} == 1) {
-		do "${codes_2_1}/sesion_3.do"					// Crear base dummy
-		do "${codes_2_1}/sesion_3a_nodup.do"			// Crear base de datos sin duplicados
-		do "${codes_2_1}/sesion_3b_clean.do"			// Crear base de datos limpia	
-		do "${codes_2_1}/sesion_3c_hps.do"				// Crear HPS level dataset
-		do "${codes_2_2}/sesion_4_hpsc.do"				// Crear HPSC level dataset
-		do "${codes_2_2}/sesion_4_hc_prices.do"			// Crear HC level dataset (prices)
+		do "${codes_2_1}/sesion_3.do"					        // Crear base dummy
+		do "${codes_2_1}/sesion_3a_nodup.do"		  	  // Crear base de datos sin duplicados
+		do "${codes_2_1}/sesion_3b_clean.do"			    // Crear base de datos limpia	
+		do "${codes_2_1}/sesion_3c_hps.do"				    // Crear HPS level dataset
+		do "${codes_2_2}/sesion_4_hpsc.do"				    // Crear HPSC level dataset
+		do "${codes_2_2}/sesion_4_hc_prices.do"			  // Crear HC level dataset (prices)
 		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"	// Merge HPS and HPSC datasets
 	}
 

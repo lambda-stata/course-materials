@@ -1,6 +1,6 @@
 /********************************************************************************
 * Título:	Manejo y Limpieza de Datos
-* Sesion: 	Sesión 2
+* Sesion: Sesión 2
 * Autor:	Rony Rodriguez-Ramirez	
 *********************************************************************************
 	
@@ -21,17 +21,21 @@
 	use "${data_1_2}/webstart.dta", clear 
 		
 *** 1.2 Duplicates and ID variable
-	isid newid 
+	isid newid
 	duplicates report newid 
 	
 	// Expandimos para tener duplicados 
 	expand 2
-	capture isid newid 
+	capture isid newid
+  
+  if (_rc == 459) {
+    // Drop los duplicados 
+    display "Existe duplicados que tenemos que eliminar"
+    
+    duplicates report newid
+    duplicates drop newid, force
+  }
 
-	// Drop los duplicados 
-	duplicates report newid 
-	duplicates drop newid, force
-		
 *********************************************************************************
 ***	PART 2: Glimpse de algunas variables
 *********************************************************************************
@@ -43,12 +47,14 @@
 	local demo ssex srace sbirthy sesk
 		
 	foreach var in `demo' {
-		tab `var'
+		quietly tab `var'
+    
 		if (r(N) == `obs') {
 			display "Las observaciones en la tabla es igual al número total de observaciones"
 		}
+    
 		else {
-			display "El número de observaciones en la tabla es diferente al número total de observaciones"
+			display "Hay missings en la variable `var'."
 		}
 	}
 
