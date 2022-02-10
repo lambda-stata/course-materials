@@ -1,7 +1,7 @@
 /********************************************************************************
-* Título:	Construcción de datos
+* Título:	  Construcción de datos
 * Sesion: 	Sesión 3a
-* Autor:	Rony Rodriguez-Ramirez
+* Autor:	  Rony Rodriguez-Ramirez
 *********************************************************************************
 	
 *** Outline:
@@ -28,14 +28,16 @@
 *** 1.2 Duplicates and ID variable	
 	// 1.2.1 Chequear si hay duplicados
 	capture isid hhid
+  
 	if (_rc == 459) {
 		display "hhid tiene observaciones duplicadas"
-	    duplicates report hhid
+	  duplicates report hhid
 	}
 	
 *** 1.3 Export duplicates
 	// 1.3.1 Exportar a excel los duplicados
-	gen key = _n 
+	gen key = _n
+  
 	capture ieduplicates hhid using "${outputs_2_1}/duplicates/duplicates.xlsx", ///
 		uniquevars(key) keepvars(*) nodaily
 	
@@ -51,15 +53,17 @@
 		uniquevars(key) keepvars(*) force
 			
 	// 1.3.5 Chequear si HHID es única y completa
-	capture isid hhid  
+	capture isid hhid
 	if (_rc == 459) {
 		display "hhid tiene observaciones duplicadas"
 	    duplicates report hhid
 	}
+  
+  else {
+    display as result "hhid no tiene observaciones duplicadas"
+  }
 	
 	drop key
 	
 	// 1.3.6 Guardar base de datos sin duplicados
 	save "${data_2_1}/agr_wide_nodup.dta", replace
-	
-	

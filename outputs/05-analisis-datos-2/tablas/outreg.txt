@@ -22,11 +22,11 @@ pop	Population	0.00271***		0.00342***	0.00325***
 					(4,055)
 4.region#1.binary					13,461**
 					(5,244)
-2.region	Census region = 2, N Cntrl			6,363**	
+2.region	Census region = 2, 2. N Cntrl			6,363**	
 				(3,086)	
-3.region	Census region = 3, South			9,216***	
+3.region	Census region = 3, 3. South			9,216***	
 				(3,061)	
-4.region	Census region = 4, West			9,627***	
+4.region	Census region = 4, 4. West			9,627***	
 				(3,180)	
 popurban	Urban population		1.34e-07**		
 			(5.65e-08)		

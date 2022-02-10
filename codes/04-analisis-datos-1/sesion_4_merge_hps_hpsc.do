@@ -25,11 +25,11 @@
 	if (_rc == 459) {
 	    display "Esta base de datos no está a nivel de hogar plot season"
 	}
-	
-*** 1.2 Merge 		
-	merge 1:m hhid plot season using "${data_2_1}/agr_hpsc.dta", assert(3)
-	drop _merge 
-	
+  
+*** 1.2 Merge    
+	merge 1:m hhid plot season using "${data_2_1}/agr_hpsc.dta", ///
+    assert(3) nogen
+  
 	// Sort
 	sort hhid plot season crop 
 	
@@ -48,8 +48,7 @@
 	
 *** 1.3 Merge
 	merge m:1 hhid using "${data_2_1}/agr_wide_nodup_cleaned.dta", ///
-		keepusing(treatment village) assert(3)
-	drop _merge 
+		keepusing(treatment village) assert(3) nogen
 	
 	/* 
 	Notes: Todas las observaciones fueron unidas exitosamente
@@ -65,9 +64,18 @@
 	
 *** 1.5 Merge with prices
 	merge m:1 hhid crop using "${data_2_1}/agr_hc_price.dta",		///
-		assert(3)
-	drop _merge
+		assert(3) nogen
 	
+  /*
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                            24,408  
+    -----------------------------------------
+    
+  */
+  
 *** 1.5 Guardar base de datos
 	save "${data_2_2}/agr_merge_hps_hpsc.dta", replace
 	

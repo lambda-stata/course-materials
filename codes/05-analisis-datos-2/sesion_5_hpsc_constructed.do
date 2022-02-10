@@ -34,22 +34,28 @@
 	
 	// El primer income es el que utilizaremos para nuestras tablas	
 	bys hhid plot season: gen income = sell_kg * price
-	replace 	income = . if sell_kg == 0
+	replace 	  income = . if sell_kg == 0
 	label var 	income "Ingreso por plot season crop"
 	
-	/* Otros ejemplos de income (sus niveles de observación son diferentes)
-	bys hhid plot season: egen income_total = total(income)
-	bys hhid: egen income_hh = total(income)
-	
-	// Collapse 
-	tempfile 	dataset
-	save 		`dataset'
+	* Otros ejemplos de income (sus niveles de observación son diferentes)
+  preserve
+  
+    bys hhid plot season: egen income_total = total(income)
+    bys hhid: egen income_hh = total(income)
+    
+    // Collapse 
+    tempfile 	dataset
+    save 		`dataset'
 
-	collapse (sum) income, by(hhid)
-	
-	merge 1:m hhid using `dataset', keepusing(treatment village)
-	*/
-	
+    collapse (sum) income, by(hhid)
+    
+    merge 1:m hhid using `dataset', keepusing(treatment village) nogen
+    
+    save "${data_3_1}/agr_hh_income.dta", replace
+    
+  restore
+ 
+
 	// 1.3 Save 
 	save "${data_3_1}/agr_merge_hps_hpsc_constructed.dta", replace
 

@@ -40,6 +40,22 @@
 	global codes_1_2			"${codes}/02-manejo-limpieza-datos"
 	global data_1_2				"${data}/02-manejo-limpieza-datos"
   
+  // Semana 2 - Día 1
+	global codes_2_1			"${codes}/03-construccion-datos"
+  global data_2_1				"${data}/03-construccion-datos" 
+  global outputs_2_1    "${outputs}/03-construccion-datos"
+  
+  // Semana 2 - Día 2
+	global codes_2_2			"${codes}/04-analisis-datos-1"
+  global data_2_2				"${data}/04-analisis-datos-1" 
+  global outputs_2_2    "${outputs}/04-analisis-datos-1"
+  
+  
+  // Semana 3 - Día 1
+	global codes_3_1			"${codes}/05-analisis-datos-2"
+  global data_3_1				"${data}/05-analisis-datos-2" 
+  global outputs_3_1    "${outputs}/05-analisis-datos-2"  
+  
 *** 0.3 Install required packages:  
   
 	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe  
@@ -69,10 +85,10 @@
 	}
 	
 	ieboilstart, version(15.0)
-		
+		 
 *** 0.4 Setting up execution 
-	global primera_semana 1
-  global segunda_semana 0
+	global primera_semana 0
+  global segunda_semana 1
   global tercera_semana 0
   global cuarta_semana  0
 		
@@ -96,7 +112,7 @@
 		do "${codes_2_2}/sesion_4_hc_prices.do"			  // Crear HC level dataset (prices)
 		do "${codes_2_2}/sesion_4_merge_hps_hpsc.do"	// Merge HPS and HPSC datasets
 	}
-
+ 
 ********************************************************************************
 ***	PART 3: Tercera Semana 
 ********************************************************************************

@@ -26,8 +26,8 @@
 	use "${data_2_1}/agr_wide_nodup_cleaned.dta", clear 
 	
 *** 1.2 Keep variables
-	keep 	hhid 	///
-			price_* 
+	keep 	hhid 	    ///
+        price_* 
 			
 *** 1.3 Reshape
 	reshape long price_, i(hhid) j(crop)

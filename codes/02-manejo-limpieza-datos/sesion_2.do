@@ -60,13 +60,13 @@
 
 *** 2.2 Una mejor manera de ver los missings
 	local ejemplo ssex star1 star2 star3 
-	
+  
 	foreach var in `ejemplo' {
 		capture assert !missing(`var')
 		
 		if _rc == 9 {
 			display "variable `var' tiene valores perdidos"
-			replace `var' = 0 if missing(`var')
+			replace `var' = 1 if missing(`var')               // Criterio random
 		}
 		
 		else {
@@ -80,14 +80,15 @@
 	gen ssex3 = ssex 
 	
 	local sex ssex ssex2 ssex3
-	
+
 	foreach var in `sex' {
-		capture assert `var' == 2 
+		capture assert inlist(ssex,0,1) 
 		if _rc == 9 {
 			recode `var' (2=0)
 		}
 	}
-	
-	
-	
-	
+  
+  label define ssex 0"Female" 1"Male", modify
+  label values ssex ssex
+  
+  

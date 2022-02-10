@@ -1,7 +1,7 @@
 /********************************************************************************
-* Título:		Construcción de datos
+* Título:		  Construcción de datos
 * Sesion: 		Sesión 3
-* Autor:		Rony Rodriguez-Ramirez
+* Autor:		  Rony Rodriguez-Ramirez
 * Proposito: 	Crear base de datos dummy
 *********************************************************************************
 	
@@ -73,16 +73,16 @@
 	egen village = cut(rand), group(12)
 	label var 	 village "Village Code"
 	label define village 	0"Argirópolis" 			///
-							1"Gotham City" 			///
-							2"Kahndaq" 				///
-							3"Suicide Slum" 		///
-							4"Temiscira (cómic)" 	///
-							5"Midway City" 			///
-							6"Ciudad Costera" 		///
-							7"Ciudad Central" 		///
-							8"Wakanda" 				///
-							9"Macondo" 				///
-							10"Mango Seco" 			///
+							1"Gotham City" 			          ///
+							2"Kahndaq" 				            ///
+							3"Suicide Slum" 		          ///
+							4"Temiscira (cómic)" 	        ///
+							5"Midway City" 			          ///
+							6"Ciudad Costera" 	    	    ///
+							7"Ciudad Central" 		        ///
+							8"Wakanda" 				            ///
+							9"Macondo" 				            ///
+							10"Mango Seco" 			          ///
 							11"Vetusta"		
 	label values village village 
 		

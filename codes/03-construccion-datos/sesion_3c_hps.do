@@ -1,7 +1,7 @@
 /********************************************************************************
-* Título:		Construcción de datos
+* Título:		  Construcción de datos
 * Sesion: 		Sesión 3
-* Autor:		Rony Rodriguez-Ramirez
+* Autor:		  Rony Rodriguez-Ramirez
 * Proposito: 	Crear HPS Level Dataset
 *********************************************************************************
 	
@@ -23,9 +23,9 @@
 	snapshot save, label("Complete Dataset")
 
 	// Keep variables relevantes
-	keep 	hhid 		///
-			cult_* 		///
-			irr_* 	
+	keep 	hhid 		  ///
+        cult_* 		///
+        irr_*
 
 	// Reshape
 	reshape long cult_ irr_, i(hhid) j(rshp_id) string
@@ -37,7 +37,7 @@
 	label var cult 	"Cultivated: Plot P in Season S"
 	label var irr 	"Irrigation: Plot P in Season S"
 	
-	// Gen ID as number
+	// Gen ID as number  
 	gen plot    = substr(rshp_id, 2, 1)
 	gen season  = substr(rshp_id, 4, 1)	
 	
@@ -50,13 +50,15 @@
 	}	
 	
 	// Label final
-	label var plot 		"Plot id"
-	label var season 	"Season id"
+	label var plot 		"Plot ID"
+	label var season 	"Season ID"
+  label var cult    "Cultivation"
+  label var irr     "Irrigation"
 	
 	// Order dataset
 	order hhid plot season 
-	
-	duplicates report hhid plot season
+  
+  duplicates report hhid plot season 
 	
 	// Save
 	save "${data_2_1}/agr_hps.dta", replace

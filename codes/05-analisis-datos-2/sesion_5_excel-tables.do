@@ -27,8 +27,8 @@
 	
 	// Regression 1: nothing interesting
 	reg divorce marriage pop
-		est sto reg1
-
+    est sto reg1
+  
 	// Regression 2: una regresion diferente
 	reg medage popurban
 		est sto reg2
@@ -50,22 +50,27 @@
 	global regressions reg1 reg2 reg3 reg4
 
 	// outreg2
-	outreg2 [${regressions}] 							///
+	outreg2 [${regressions}] 							        ///
 		using "${outputs_3_1}/tablas/outreg.xls" 		///
 		, replace excel label
 	
 	// estout
-	estout ${regressions} 								///
+	estout ${regressions} 								        ///
 		using "${outputs_3_1}/tablas/estout.xls" 		///
 		, replace c(b & _star se) label
 
+  // esttab
+  esttab ${regressions}                           ///                         
+    using "${outputs_3_1}/tablas/esttab_reg.tex", ///
+    replace ${style1} keep(pop marriage popurban) 
+  
 	// xml_tab
-	xml_tab ${regressions} 								///
+	xml_tab ${regressions} 								          ///
 		, save("${outputs_3_1}/tablas/xml_tab.xls") 	///
 		replace below
 
 	// outwrite
-	outwrite ${regressions} 							///
+	outwrite ${regressions} 							          ///
 		using "${outputs_3_1}/tablas/outwrite.xlsx" 	///
 		, replace
 	

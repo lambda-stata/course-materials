@@ -23,14 +23,15 @@
 *** 1.1 Reshaping data to plot season crop level	
 
 	// 1.1.1 Keep variables relevantes
-	keep 	hhid 		///
-			seed_kg* 	///
-			harv_kg* 	///
-			consum_kg* 	///
-			sell_kg* 	
+	keep 	hhid 		    ///
+        seed_kg* 	  ///
+        harv_kg* 	  ///
+        consum_kg* 	///
+        sell_kg* 	
 
 	// 1.1.2 Reshape
-	reshape long seed_kg harv_kg consum_kg sell_kg, i(hhid) j(rshp_id) string
+	reshape long seed_kg harv_kg consum_kg sell_kg, ///
+    i(hhid) j(rshp_id) string
 		
 	// 1.1.3 Label vars
 	label var seed_kg 	"Semila: Plot P in Season S of Crop C"
@@ -54,10 +55,11 @@
 	
 	// 1.1.5 Order and Keep
 	order hhid plot season crop 
+  
+  // 1.1.6 Check duplicates
+  duplicates report hhid plot season crop
 	
 	// 1.1.6 Save 
 	save "${data_2_1}/agr_hpsc.dta", replace
-	
-	
-	
+
 
