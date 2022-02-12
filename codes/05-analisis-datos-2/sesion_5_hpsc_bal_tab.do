@@ -42,7 +42,7 @@
   estpost summarize `vars'
   esttab using "${outputs_3_1}/tablas/Table-esttab-example2.tex", replace         ///
     cells("mean(fmt(%9.2fc)) sd(fmt(%9.2fc)) min(fmt(%9.2fc)) max(fmt(%9.2fc))")  ///
-    nomtitle nonumbers label 
+    nonumbers label 
   
  
 	iebaltab `vars', 			  ///

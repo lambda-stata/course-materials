@@ -130,8 +130,8 @@ Esta sería mi tabla con mis formatos de esttab.
 		\begin{threeparttable}
 			\caption{Basic exported table}
 			\begin{tabular}{@{}l*{4}{c}@{}}
-                \toprule
-                \toprule 
+        \toprule
+        \toprule 
         & Mean & SD & Min & Max \\
 				& (1) & (2) & (3) & (4) \\
 				\primitiveinput{tablas/Table-esttab-example.tex}
@@ -156,6 +156,40 @@ Esta sería mi segunda tabla pero de una manera más sencilla.
 		\input{tablas/Table-esttab-example2.tex}
 	\end{adjustbox}
 \end{table}
+
+Tabla de correlación:
+
+\begin{table}[H]
+  \centering
+  \caption{Ejemplo de exportación de correlaciones}
+  \begin{adjustbox}{max width = \textwidth}
+    \input{tablas/corr_example.tex}
+  \end{adjustbox}
+\end{table}
+
+Otra tabla de correlación:
+
+\begin{table}[H]
+	\centering
+	\label{tab:Table}
+	\begin{adjustbox}{max width=\linewidth}
+		\begin{threeparttable}
+			\caption{Ejemplo de exportación de correlaciones con estilo}
+			\begin{tabular}{@{}l*{4}{c}@{}}
+        \toprule
+        \toprule 
+				\primitiveinput{tablas/corr_example2.tex}
+				\bottomrule
+			\end{tabular}
+			\begin{tablenotes}
+				\setlength\labelsep{0pt}
+				\footnotesize
+				\item \textit{Notes}: Algunas notas acá.
+			\end{tablenotes}
+		\end{threeparttable}
+	\end{adjustbox}
+\end{table}
+
 
 Tabla de regresiones:
 
