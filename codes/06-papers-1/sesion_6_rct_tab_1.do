@@ -25,25 +25,24 @@
 	use "${data_3_2}/Burde and Linden 2013_HH.dta", clear
 		
 *** 1.2 Crear matrix vacia
+
 	matrix m1 = J(9,9,.)
-	matrix list m1 
+	matrix list m1
 	
 *** 1.3 Panel A: Household Surveyed	
 	// Identified
-		// Fall 2007 Survey (Row 1 - Col 1 / 4)
+		// Fall 2007 Survey (Row 1 - Col 1 / 4)    
 		sum f07_hh_observed if f07_hh_covered == 1 & treatment == 1
-		
 		matrix m1[2, 2] = `r(N)'		
 		matrix m1[4, 2] = round(`r(mean)', .001) 	// Percent (Row 3)
-					
+    
 		sum f07_hh_observed if f07_hh_covered == 1 & treatment == 0
 		matrix m1[2, 3] = `r(N)'
 		matrix m1[4, 3] = round(`r(mean)', .001)	// Percent (Row 3)
 		
-		matrix m1[2,4] = m1[2,2] - m1[2,3]			// Difference 	(Col 3) 
-		matrix m1[2,5] = m1[2,2] + m1[2,3]			// Total		(Col 4)
-		 
-		
+		matrix m1[2,4] = m1[2,2] - m1[2,3]			  // Difference 	(Col 3) 
+		matrix m1[2,5] = m1[2,2] + m1[2,3]			  // Total		(Col 4)
+
 		// Spring 2008 Survey (Row 1 - Col 5/9)
 		sum s08_hh_observed if s08_hh_covered == 1 & treatment == 1
 		matrix m1[2, 6] = `r(N)'
@@ -77,9 +76,9 @@
 		matrix m1[3,8] = m1[3,6] - m1[3,7]
 		matrix m1[3,9] = m1[3,6] + m1[3,7]	
 		
-	//	Percent of households surveyed (Col 3 and 4)
+	//	Percent of households surveyed (Col 3 and 4)   
 		reg f07_hh_observed treatment if f07_hh_covered == 1, cluster(clustercode)
-		
+
 		matrix m1[4,4] = round(_b[treatment], 	.001)
 		matrix m1[5,4] = round(_se[treatment], 	.001)
 			
@@ -147,7 +146,7 @@
 		
 	mat list m1
 	
-*** 1.5 Matrix to dataset and export to excel
+*** 1.5 Matrix to dataset and export to excel  
 	clear
 	svmat m1, names(col) 
 	
@@ -155,20 +154,20 @@
 	
 	//	Variables Column 1
 	replace c1 = "Panel A. Households surveyed" if _n == 1
-	replace c1 = "Identified" 					if _n == 2
-	replace c1 = "Surveyed" 					if _n == 3 
-	replace c1 = "Percent of households" 		if _n == 4
-	replace c1 = "surveyed" 					if _n == 5
+	replace c1 = "Identified" 					        if _n == 2
+	replace c1 = "Surveyed" 					          if _n == 3 
+	replace c1 = "Percent of households" 		    if _n == 4
+	replace c1 = "surveyed" 					          if _n == 5
 	
 	replace c1 = "Panel B. Households with eligible children" if _n == 6
-	replace c1 = "Households with children" 	if _n == 7
-	replace c1 = "Percentage with children" 	if _n == 8
-	replace c1 = ""								if _n == 9 
-	
-	
+	replace c1 = "Households with children" 	  if _n == 7
+	replace c1 = "Percentage with children" 	  if _n == 8
+	replace c1 = ""								              if _n == 9 
+
 *** Outsheet
-	outsheet using "${outputs_3_2}/tablas/tab_1.csv", comma nonames noquote nolabel replace
-	
+  outsheet using "${outputs_3_2}/tablas/tab_1.csv",   ///
+    comma nonames noquote nolabel replace 
+
 	
 	
  	

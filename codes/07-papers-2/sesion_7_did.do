@@ -31,39 +31,39 @@
 	use "${data_4_1}/Card and Krueger 1994.dta", clear 
 
 *** 1.2 Componer labels y tipo de variables
-	label var bk 		"Burger King"
-	label var kfc 		"KFC"
-	label var roys 		"Roy Rogers"
-	label var wendys 	"Wendy's "
+	label var bk 		    "Burger King"
+	label var kfc 		  "KFC"
+	label var roys 		  "Roy Rogers"
+	label var wendys 	  "Wendy's"
 	label var co_owned 	"Company-owned"
-	label var emptot 	"FTE employment"
+	label var emptot 	  "FTE employment"
 	label var wage_st 	"Starting Wage"
-	label var pmeal 	"Price of full meal"
+	label var pmeal 	  "Price of full meal"
 	label var hrsopen 	"Hours open (weekday)" 
 	label var emptot2 	"FTE employment"
 	label var wage_st2 	"Starting Wage"
-	label var pmeal2 	"Price of full meal"
+	label var pmeal2 	  "Price of full meal"
 	label var hrsopen2 	"Hours open (weekday)" 
 
 ***	1.3 Tabla 2: Mean of key variables
 	global 	tab2_1 		///
-			bk 			///
-			kfc 		///
-			roys 		///
-			wendys 		///	
-			co_owned
+          bk 			  ///
+          kfc 		  ///
+          roys 		  ///
+          wendys 		///	
+          co_owned
 	
 	global 	tab2_2		///
-			emptot 		///
-			wage_st 	///
-			pmeal 		///
-			hrsopen 	///
+          emptot 		///
+          wage_st 	///
+          pmeal 		///
+          hrsopen
 	
 	global 	tab2_3		///
-			emptot2 	///
-			wage_st2 	///
-			pmeal2 		///
-			hrsopen2		
+          emptot2 	///
+          wage_st2 	///
+          pmeal2 		///
+          hrsopen2		
 			
 ***	1.4 Fix the variables
 	foreach var in $tab2_1 {
@@ -78,18 +78,18 @@
 	//	------------------------------------------------------------------------
 	//	2.1.1 Distribution of Store Type (percentages)
 	//	------------------------------------------------------------------------
-	eststo clear 	
-	estpost ttest $tab2_1, by(pa) uneq 
+  eststo clear
+	estpost ttest ${tab2_1}, by(pa) uneq 
 	
 	//	Excel
 	esttab using "${outputs_4_1}/tablas/tab2_1.csv", 	///
-		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
+		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	  ///
 		wide nonumber noobs nomtitle label replace
-				
+
 	// 	Latex
 	esttab using "${outputs_4_1}/tablas/tab2_1.tex", 	///
-		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	///
-		wide nonumber fragment noobs nogaps				///
+		cells("mu_1(fmt(1)) mu_2(fmt(1)) t(fmt(1))") 	  ///
+		wide nonumber fragment noobs nogaps				      ///
 		nofloat collabels(none) noline label replace
 	
 	//	------------------------------------------------------------------------
@@ -105,10 +105,11 @@
 		
 	//	Latex
 	matrix m1 = J(8,4,.)
-	matrix list m1 
-		
+	matrix list m1  
+  
 	local i = 1
-	local j = 2
+	local j = 2 
+    
 	foreach var in $tab2_2 {
 		qui ttest `var', by(pa) uneq
 		
@@ -118,19 +119,20 @@
 		
 		matrix m1[`j',2]	= round(`r(sd_1)' / sqrt(`r(N_1)'), .01) 
 		matrix m1[`j',3]	= round(`r(sd_2)' / sqrt(`r(N_2)'), .01) 
-		
+    
 		local i = `i' + 2
 		local j = `j' + 2
 	}
 
 	matrix list m1
 	
+  // Export
 	preserve 
 		clear
 		svmat m1, names(col) 
 		
 		tostring *, format("%2.1f") replace force
-			
+    
 		foreach var of varlist c2 c3 {
 			forvalues x = 2(2)8 {
 				replace `var' = "(" + `var' + ")" if _n == `x' 
@@ -138,8 +140,8 @@
 		}
 		
 		//	Variables Column 1
-		replace c1 = "FTE employment" 				if _n == 1
-		replace c1 = "Starting wage" 				if _n == 3
+		replace c1 = "FTE employment" 				  if _n == 1
+		replace c1 = "Starting wage" 				    if _n == 3
 		replace c1 = "Price of full meal" 			if _n == 5 
 		replace c1 = "Hours open (weekday)" 		if _n == 7
 		
@@ -147,17 +149,17 @@
 		replace c4 = "" if c4 == "."
 				
 		// Excel
-		outsheet using "${outputs_4_1}/tablas/tab2_2.csv", 		////
+		outsheet using "${outputs_4_1}/tablas/tab2_2.csv", 		///
 				 comma nonames noquote nolabel replace		
-		
-		replace c`c(k)' =  c`c(k)' + "\\"
+			
+		// Export to TeX    
+    replace c`c(k)' =  c`c(k)' + " \\"
 	
 		foreach col of varlist c1-c3 {
-			replace `col' = `col' + "&"
+			replace `col' = `col' + " &"
 		}
-	
-		// Export to TeX
-		outsheet using "${outputs_4_1}/tablas/tab2_2.tex", 		////
+    
+		outsheet using "${outputs_4_1}/tablas/tab2_2.tex", 		///
 				 nonames noquote nolabel replace
 	restore 
 	
@@ -229,7 +231,6 @@
 	snapshot save, label("Formato completo ya exportado")
 	snapshot restore 1
 	
-	
 ********************************************************************************
 ***	PART 3: TABLA 4
 ********************************************************************************		
@@ -241,21 +242,21 @@
 	// Change and Gap
 	gen 	d_emp	= emptot2 - emptot
 	gen 	gap 	= (5.05-wage_st) / wage_st
-	replace gap 	= 0 if pa==1
-	replace gap 	= 0 if wage_st>=5.05
+	replace gap 	= 0 if pa == 1
+	replace gap 	= 0 if wage_st >= 5.05
 
 	// Drop vars con missings y que no estuvieron cerradas	
 	drop if missing(wage_st)	& closed!=1
-	drop if missing(wage_st2) 	& closed!=1
+	drop if missing(wage_st2) & closed!=1
 	drop if missing(d_emp) 		& closed!=1
 	
 	// Componer labels
-	label var gap 		"Intitial wage gap"
-	label var nj 		"New Jersey dummy"
-	label var gap 		"Initial wage gap" 
+	label var gap 		  "Intitial wage gap"
+	label var nj 		    "New Jersey dummy"
+	label var gap 		  "Initial wage gap" 
 
 	global chains_owned "kfc roys wendys co_owned"
-	global regions 		"southj centralj pa1 pa2"
+	global regions 		  "southj centralj pa1 pa2"
 	
 	//	------------------------------------------------------------------------
 	// 3.2 Exportar resultados utilizando outreg2 
@@ -264,38 +265,39 @@
 	global aes "bdec(2) sdec(2) e(rmse) nocons noobs nor2 label"
 	
 	reg d_emp nj
-	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  replace			///
-		$aes keep(nj) 													///	
-		ctitle("i") 													///
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  replace			  ///
+		${aes} keep(nj) 													                    ///	
+		ctitle("i") 													                        ///
 		title(Table 4: Reduced-Form Models for Change in Employment)	///
 		addtext(Controls for chain and ownership, no, Controls for region, no)
-	reg d_emp nj $chains_owned 
+  
+	reg d_emp nj ${chains_owned} 
 	test (kfc=roys=wendys=co_owned=0)
-	local test1=r(p) 
+	local test1 = r(p) 
 	outreg2 using "${outputs_4_1}/tablas/tab4.xls",						///
-		$aes keep(nj) ctitle("ii")										///
+		$aes keep(nj) ctitle("ii")										          ///
 		addstat(Probability value for controls, `test1')				///
 		addtext(Controls for chain and ownership, yes, Controls for region, no)
 			
 	reg d_emp gap
-	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  					///
-		$aes keep(gap) ctitle("iii")									///
+	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  					  ///
+		${aes} keep(gap) ctitle("iii")									          ///
 		addtext(Controls for chain and ownership, no, Controls for region, no) 
 	
-	reg d_emp gap $chains_owned 
+	reg d_emp gap ${chains_owned}
 	test (kfc=roys=wendys=co_owned=0)
-	local test2=r(p)	
+	local test2 = r(p)	
 	outreg2 using "${outputs_4_1}/tablas/tab4.xls",  					///
-		$aes keep(gap) ctitle("iv")										///
+		${aes} keep(gap) ctitle("iv")										        ///
 		addstat(Probability value for controls, `test2')				///
 		addtext(Controls for chain and ownership, yes, Controls for region, no)
 	
-	reg d_emp gap $chains_owned $regions 
+	reg d_emp gap ${chains_owned} ${regions}
 	test (kfc=roys=wendys=co_owned==southj=centralj=pa1=pa2=0)
 	local test3 = r(p) 
 	outreg2 using "${outputs_4_1}/tablas/tab4.xls",   					///
-		$aes keep(gap) ctitle("v") 										///
-		addstat(Probability value for controls, `test3')				///
+		${aes} keep(gap) ctitle("v") 										          ///
+		addstat(Probability value for controls, `test3')				  ///
 		addtext(Controls for chain and ownership, yes, Controls for region, yes)
 		
 
@@ -310,7 +312,7 @@
 		estadd local regions	"no"
 
 	// Col 2
-	eststo reg2: reg d_emp nj $chains_owned 
+	eststo reg2: reg d_emp nj ${chains_owned} 
 		estadd local controls	"yes"	
 		estadd local regions	"no"	
 		
@@ -323,7 +325,7 @@
 		estadd local regions	"no"
 
 	// Col 4
-	eststo reg4: reg d_emp gap $chains_owned  
+	eststo reg4: reg d_emp gap ${chains_owned}
 		estadd local controls	"yes"
 		estadd local regions	"no"	
 		
@@ -331,7 +333,7 @@
 		estadd scalar test = r(p)
 		
 	// Col 5
-	eststo reg5: reg d_emp gap $chains_owned $regions 
+	eststo reg5: reg d_emp gap ${chains_owned} ${regions}
 		estadd local controls	"yes"	
 		estadd local regions	"yes"
 	
@@ -341,17 +343,15 @@
 	// Exportar
 	local regressions reg1 reg2 reg3 reg4 reg5
 	
-	esttab `regressions'										///
-		using "${outputs_4_1}/tablas/tab4.tex", 				///
-		keep(nj gap)											///
-		cells("b(fmt(2))" "se(par fmt(2))")						///
+	esttab `regressions'										      ///
+		using "${outputs_4_1}/tablas/tab4.tex", 		///
+		keep(nj gap)											          ///
+		cells("b(fmt(2))" "se(par fmt(2))")					///   
 		stat(controls regions rmse test, 						///
-			labels("Controls for chain and ownership" 			///
-				   "Controls for region" 						///
-				   "Standard error of regression" 				///
-				   "Probability value for controls"))			///
-		label nogaps fragment nomtitle nonumbers nodep nolines	///
-		replace collabels(none)
-	
-	
+			labels("Controls for chain and ownership" ///
+				   "Controls for region" 						    ///
+				   "Standard error of regression" 			///
+				   "Probability value for controls"))		///
+		label nogaps fragment nomtitle nonumbers    ///
+    nodep nolines	collabels(none) replace 
 	

@@ -56,6 +56,16 @@
   global data_3_1				"${data}/05-analisis-datos-2" 
   global outputs_3_1    "${outputs}/05-analisis-datos-2"  
   
+  // Semana 3 - Día 2
+ 	global codes_3_2			"${codes}/06-papers-1"
+  global data_3_2			  "${data}/06-papers-1" 
+  global outputs_3_2    "${outputs}/06-papers-1"   
+  
+  // Semana 4 - Día 1
+  global codes_4_1      "${codes}/07-papers-2"
+  global data_4_1       "${data}/07-papers-2"
+  global outputs_4_1    "${outputs}/07-papers-2"
+  
 *** 0.3 Install required packages:  
   
 	local packages ietoolkit iefieldkit winsor estout outreg2 reghdfe  
@@ -88,9 +98,11 @@
 		 
 *** 0.4 Setting up execution 
 	global primera_semana 0
-  global segunda_semana 1
+  global segunda_semana 0
   global tercera_semana 0
-  global cuarta_semana  0
+  global cuarta_semana  1
+  
+  stop
 		
 ********************************************************************************
 ***	PART 1: Primera Semana  
