@@ -1,7 +1,7 @@
 /********************************************************************************
-* Título:		Análisis de Datos (ESTTAB)
+* Título:		  Análisis de Datos (ESTTAB)
 * Sesion: 		Sesión 8
-* Autor:		Rony Rodriguez-Ramirez
+* Autor:		  Rony Rodriguez-Ramirez
 * Proposito: 	Programando códigos en Stata
 *********************************************************************************
 	
@@ -38,11 +38,10 @@
 *** 1.2 Ejemplos de programs
 
 	//	1.2.1 Ejemplo sencillo 1: Pikachu
-	
+	 
+  // Program sin argumentos  
 	capture program drop pikachu 
-
-	program pikachu 
-	
+	program define pikachu 
 		display as result "⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶"
 		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿"
 		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿"
@@ -57,24 +56,22 @@
 		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿"
 		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿"
 		display as result "⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿"
-		
 	end 
 
 	pikachu
 	
 	// 1.2.2 Ejemplo sencillo 2: Obteniendo la fecha actual pero como oración
-	capture program drop myfecha
+	capture program drop mifecha
 	
-	program myfecha
+	program define mifecha
 		display as result "Hoy es " c(current_date) " y son las " c(current_time)
 	end 
 	
-	myfecha
+	mifecha
 	
 	// 1.2.3 Ejemplo utilizando RClass type	
 	// My sum	
-	capture program drop mysum 
-	
+	capture program drop mysum
 	program define mysum, rclass
 		version 14
 		syntax varname
@@ -82,18 +79,18 @@
 		
 		tempvar new
 		quietly {
-			count if `varlist' != .
+			count if !missing(`varlist')
 			return scalar N = r(N)
 			gen double `new' = sum(`varlist')
 			return scalar sum = `new'[_N]
 			return scalar mean = return(sum)/return(N)
 		}
 	end	
-	
+
 	mysum pop
 	ret list 
 		
-	// 1.2.4 Mean SE
+	// 1.2.4 Mean SE (Promedio / Error Estándar)
 	capture program drop meanse
 	program meanse, rclass
 		version 14
@@ -109,41 +106,43 @@
 		return scalar mean = `mean'
 		return scalar se = `sem'
 	end
-
-	foreach var of varlist pop region {
+  
+	foreach var of varlist * {
 		display as result "`var'"
 		meanse `var'
 	}
 	
-	// 1.2.5 Combinando regresiones y demás 	
+	// 1.2.5 Combinando regresiones y demás (eclass)	
 	capture program drop regmultiple 
 	
-	program regmultiple, eclass
+	program define regmultiple, eclass
 		syntax varlist, by(varname)
 		
-		marksample touse 
+		marksample touse
 		markout `touse' `by'
-		
+
 		foreach var of local varlist {
 		    eststo: reg `var' `by'
 		}
 	end
-	
-	eststo clear 
-	regmultiple pop poplt5 pop5_17 pop18p pop65p popurban medage death marriage divorce, by(treatment)
-	
-	esttab, keep(treatment)
+  
+  eststo clear
+  regmultiple pop*, by(treatment)
 	
 
 	// 1.2.6 Ejemplo utilizando EClass type	
 	capture program drop tvsc
 	
 	program tvsc, eclass
-		syntax varlist [aw pw] [if] [in], by(varname) clus_id(varname numeric) strat_id(varlist fv) [ * ]
+		syntax varlist [aw pw] [if] [in], by(varname)           ///
+      clus_id(varname numeric) strat_id(varlist fv) [ * ]
 
 		marksample 	touse
 		markout 	`touse' `by'
-		tempname 	mu_1 mu_2 mu_3 mu_4 se_1 se_2 se_3 se_4 d_p d_p2 N_C N_T S_C S_T N_S N_FE S_S S_FE
+		tempname 	mu_1 mu_2 mu_3 mu_4 ///
+              se_1 se_2 se_3 se_4 ///
+              d_p d_p2            ///
+              N_C N_T S_C S_T N_S N_FE S_S S_FE
 		
 		capture drop TD*
 		tab `by' , gen(TD)
@@ -187,7 +186,7 @@
 		}
 		
 		foreach mat in mu_1 mu_2 mu_3 mu_4 se_1 se_2 se_3 se_4 d_p d_p2 N_C N_T S_C S_T N_S N_FE S_S S_FE {
-			mat coln ``mat'' = `varlist'
+			mat colnames ``mat'' = `varlist'
 		}
 		
 		local cmd "tvsc"

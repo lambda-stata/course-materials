@@ -1,7 +1,7 @@
 /********************************************************************************
-* Título:		Figuras RDD
+* Título:		  Figuras RDD
 * Sesion: 		Sesión 8
-* Autor:		Rony Rodriguez-Ramirez
+* Autor:		  Rony Rodriguez-Ramirez
 * Proposito: 	Replicación del paper Pop-Eleches and Urquiola (2013)
 *********************************************************************************
 	
@@ -23,7 +23,7 @@
 *******************************************************************************/
 
 *** 1.0 Global settings
-	global 	fig 																///
+	global 	fig 																                          ///
 			mcolor(black red green)  clcolor(black red green) legend(off) 		///
 			scheme(s1color) msymbol(Oh p p) xline(0) sort connect(. l l)
 			
@@ -32,16 +32,15 @@
 
 *** 1.2	Componer labels
 	label var relativescore "transition scores relative to the cutoffs"
-	label var score 		"transition scores"
+	label var score 		    "transition scores"
 	label var bexam_grade 	"the baccalaureate exam grade"
 
 *** 1.3 Drop observaciones
 	drop if relativescore >= .2 | relativescore <= -.2
 	sum score bexam_grade relativescore
-
 	
 *** 1.4 Collapse data
-	collapse (mean) score bexam_grade, by(relativescore)
+  collapse (mean) score bexam_grade, by(relativescore)
 	
 *** 1.5 Regresiones a cada lado del cutoff
 	reg score relativescore if relativescore<0 & relativescore!=0 
@@ -51,10 +50,10 @@
 	predict panela2 if relativescore>0
 
 *** 1.6 Figure (scatter plot)
-	twoway 	scatter score panela1 panela2 relativescore 		///
-			if relativescore!=0, $fig							///
-			ytitle(School level score) 							///
-			xtitle(Score distance to cutoff) 					///
+	twoway scatter score panela1 panela2 relativescore 		  ///
+			if relativescore!=0, $fig							              ///
+			ytitle(School level score) 							            ///
+			xtitle(Score distance to cutoff) 					          ///
 			title(Panel A: Average transition score, position(11) size(medium))
 	
 *** 1.7 Exportar figura
