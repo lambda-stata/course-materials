@@ -1,0 +1,12 @@
+\frametitle{Creando nuestros comandos: [Opciones]}
+Aqui es donde ya encontraremos las cosas más interesantes de los comandos. Por ejemplo:
+  \begin{lstlisting}
+    capture program drop generate_name
+    program define generate_name
+      syntax varname, generate(name)
+        gen `generate' = `varlist'
+
+    end
+  \end{lstlisting}
+
+  También podríamos agregar si queremos hacer cambios extras a esta nueva variable. Pasaremos a Stata ahora para realizar más ejemplos.

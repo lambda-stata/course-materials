@@ -24,6 +24,7 @@
 \graphicspath{{./fig/}}
 
 % colors
+\usepackage{listings}
 \usepackage{colortbl}
 \usepackage{url}
 \urlstyle{rm}
@@ -47,7 +48,7 @@
 % Title Page
 %==============================================================
 %Information to be included in the title page:
-\title{Exportando tablas en Stata III}
+\title{Exportando tablas en Stata III \\ Programando comandos | RDD}
 \subtitle{Replicación de Papers}
 \author{Rony Rodriguez-Ramírez} 
 \institute{LAMBDA}
@@ -160,7 +161,7 @@
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
-				\item Branc es la \textbf{\textit{característica clave}} clave de Git.
+				\item La rama es la \textbf{\textit{característica clave}} clave de Git.
 				\item Las ramas nos permite crea una copia del código donde nosotros podemos experimentar. Si nos gusta el resultado podemos unir nuestro experimento con el projecto principal.
 			\end{itemize}
 		\end{column}
@@ -178,7 +179,6 @@
 
 	\begin{itemize}
 		\item Lamentablemente por tiempo no podremos introducir más features de Git. 
-		\item En cavas podrás encontrar más materiales.
 	\end{itemize}
 \end{frame}
 %-----------------------------------------------
@@ -277,6 +277,85 @@
 \end{frame}
 %-----------------------------------------------
 
+%-----------------------------------------------
+\section{Programación en Stata}
+\subsection{Programación en Stata}
+%-----------------------------------------------
+
+\begin{frame}[t, fragile]{Creando nuestros comandos}
+  Cuando escribe un comando que Stata no reconoce, Stata primero busca en su memoria un programa con ese nombre. Si Stata lo encuentra, Stata ejecuta el programa.
+  
+  Si Stata no encuentra el comando, debemos definirlo o instalarlo. Por ejemplo:
+
+  \begin{lstlisting}
+    . hello
+    command hello is unrecognized
+    r(199);
+  \end{lstlisting}
+  Así es como funciona la programación en Stata. Un programa se define por: 
+
+  \begin{lstlisting}
+    program define progname
+      Stata commands
+    end
+  \end{lstlisting}
+\end{frame}
+%-----------------------------------------------
+\begin{frame}[t, fragile]{Creando nuestros comandos}
+  Si el comando que deseamos crear usa la sintaxis estándar de Stata. Es decir, argumentos como una lista de variables, posiblemente un peso, tal vez una cláusula "if" o "in", y tal vez un montón de opciones, podemos aprovechar el propio analizador de Stata, que almacena convenientemente todos estos elementos en macros locales listos para que los use.
+
+  Entre program y end, debemos utilizar el comando \textit{syntax}. El cual tendrá podría tener la siguiente lógica:
+  \begin{lstlisting}
+    capture program drop test
+    program define test
+      syntax varname, options
+      ...
+    end
+  \end{lstlisting}
+\end{frame}
+%-----------------------------------------------
+
+\begin{frame}[t, fragile]{Creando nuestros comandos}
+  Con varname estaremos especificando el uso de variables después de nuestro comando. Este es nuestro primer elemento.
+  \begin{itemize}
+    \item Puede especificar mínimos y máximos, por ejemplo, un programa que requiera exactamente dos variables diría varlist(min=2 max=2). 
+    \item Cuando solo tiene una variable podemos escribir varname, que es la abreviatura de varlist(min=1 max=1).
+  \end{itemize}
+  Stata luego se asegurará de que su programa se llame con exactamente un nombre de una variable existente, que se almacenará en una macro local llamada \textit{varlist}.
+\end{frame}
+%-----------------------------------------------
+
+\begin{frame}[t, fragile]{Creando nuestros comandos: [Opciones]}
+  Los elementos de sintaxis opcionales están encerrados entre corchetes [  ]. Los argumentos no opcionales van simplemente después de una comma.
+  En este caso tendremos nuestro comando de la siguiente forma:
+  \begin{lstlisting}
+    capture program drop generate_name
+    program define generate_name
+      syntax varname, Generate(name)
+      ...
+    end
+  \end{lstlisting}
+
+  Ahora nosotros tendremos dos macros que podemos utilizar en nuestro comando: "varlist" y "generate".
+
+\end{frame}
+
+%-----------------------------------------------
+\begin{frame}[t, fragile]{Creando nuestros comandos: [Opciones]}
+  Aqui es donde ya encontraremos las cosas más interesantes de los comandos. Por ejemplo:
+  \begin{lstlisting}
+    capture program drop generate_name
+    program define generate_name
+      syntax varname, generate(name)
+        gen `generate' = `varlist'
+        
+    end
+  \end{lstlisting}
+
+  También podríamos agregar si queremos hacer cambios extras a esta nueva variable. Pasaremos a Stata ahora para realizar más ejemplos.
+\end{frame}
+
+
 %==============================================================
 \miniframesoff 	
 
@@ -292,7 +371,7 @@
 % END
 %==============================================================	
 \begin{frame}[plain, standout]
-	Nos vemos mañana.
+	End.
 \end{frame}
 %-----------------------------------------------
 \end{document}		
