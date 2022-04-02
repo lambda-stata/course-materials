@@ -1,0 +1,147 @@
+%\input{tcilatex}
+\documentclass{article}
+\usepackage[flushleft]{threeparttable}
+%\usepackage[nolists,heads]{endfloat}
+\usepackage{pdflscape}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{multirow}
+%\usepackage{slashbox}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[skip = 0pt]{caption}
+\captionsetup{justification=centering}
+\usepackage{subcaption}
+\usepackage{footnote} 
+\usepackage{fullpage}
+\usepackage{mathrsfs,amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{changepage}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage[table]{xcolor}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{olivine}{rgb}{0.6, 0.73, 0.45}
+\usepackage{array}
+\usepackage[plainpages=false,pdfpagelabels]{hyperref}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{nameref}
+%\usepackage[all]{hypcap}
+%\usepackage{ctable}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{apacite}
+\usepackage{rotating}
+\usepackage[T1]{fontenc}
+\usepackage{lscape}
+\usepackage{adjustbox}
+\usepackage{afterpage}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{geometry}
+
+%font
+\usepackage[sc]{mathpazo}
+
+%DAG
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%\tikzset{mynode/.style={draw,text width=1in,align=center}}
+\tikzset{mynode/.style={draw,align=center}}
+
+\makeatletter\let\expandableinput\@@input\makeatother
+\MakeOuterQuote{"}
+\setcounter{MaxMatrixCols}{10}
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{assumption}{Assumption}
+
+% new environment for landscape tables
+\newenvironment{ltable}{\begin{landscape}\begin{table}}{\end{table}\end{landscape}}
+\newenvironment{ltablelong}{\begin{landscape}\begin{longtable}}{\end{longtable}\end{landscape}}
+
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\makeatletter
+\newcommand\primitiveinput[1]
+{\@@input #1 }
+\makeatother
+
+% tables numbers setup
+%\numberwithin{table}{section}
+
+% colors
+\usepackage{colortbl}
+\usepackage{url}
+\urlstyle{rm}
+\definecolor{darkblue}{rgb}{0,0,.4}
+\hypersetup{colorlinks=true,
+			breaklinks=true,
+			citecolor=darkblue,
+			linkcolor=darkblue,
+			menucolor=darkblue,
+			urlcolor=darkblue}
+
+% Tables new command
+\newcommand{\returnupdates}{%
+Return to \nameref{sec:updates}.%
+}
+
+\usepackage{lipsum}
+%-----------------------------------------------------------------
+% BEGIN
+%-----------------------------------------------------------------
+\begin{document}
+%-----------------------------------------------------------------
+\title{Sesión 8: Exportación de Figuras}
+\author{Rony Rodriguez-Ramirez}
+\maketitle
+%-----------------------------------------------------------------
+% Sección: Tablas
+%-----------------------------------------------------------------
+\newpage
+\section{Figures}
+%-----------------------------------------------------------------
+% Figure 1
+%-----------------------------------------------------------------
+\setcounter{table}{1}
+
+\lipsum[1-2]
+
+\begin{figure}[H]
+  \centering
+  \caption{Figura de ejemplo}
+  \includegraphics[width=0.7\textwidth]{figs/fig1.png}
+\end{figure}
+
+\lipsum[4-6]
+
+%-----------------------------------------------------------------
+% END ------------------------------------------------------------
+%-----------------------------------------------------------------
+\end{document}
+%-----------------------------------------------------------------

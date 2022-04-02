@@ -57,7 +57,8 @@
 			title(Panel A: Average transition score, position(11) size(medium))
 	
 *** 1.7 Exportar figura
-	graph export "${outputs_4_2}/fig1.pdf", replace 
+	graph export "${outputs_4_2}/figs/fig1.pdf", replace 
+  graph export "${outputs_4_2}/figs/fig1.png", replace 
 
 		
 		
